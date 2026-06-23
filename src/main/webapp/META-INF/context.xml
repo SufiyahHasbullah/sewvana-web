@@ -4,7 +4,7 @@
               auth="Container"
               type="javax.sql.DataSource"
               driverClassName="com.mysql.cj.jdbc.Driver"
-              url="jdbc:mysql://localhost:3307/sewvana_db?allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=UTC"
-              username="sewvana_user"
-              password="root" />
+              url="jdbc:mysql://reseau.proxy.rlwy.net:14810/railway?allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=UTC"
+              username="root"
+              password="RoFJlTXWolGRpEBoYxJoWbQCFNWFqMJF" />
 </Context>
