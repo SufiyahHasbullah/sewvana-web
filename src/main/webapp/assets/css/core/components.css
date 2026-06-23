@@ -459,3 +459,85 @@
 .sw-animate-up { animation: sw-slide-up 0.4s cubic-bezier(0.4,0,0.2,1) both; }
 .sw-animate-up-2 { animation: sw-slide-up 0.4s 0.1s cubic-bezier(0.4,0,0.2,1) both; }
 .sw-animate-up-3 { animation: sw-slide-up 0.4s 0.2s cubic-bezier(0.4,0,0.2,1) both; }
+
+/* ============================================================
+   8. RESPONSIVE / MOBILE STACKABLE TABLES
+   ============================================================ */
+@media (max-width: 767.98px) {
+  .table-responsive {
+    border: none !important;
+    overflow: visible !important;
+  }
+  .sw-table,
+  .table-sw,
+  .sw-table tbody,
+  .table-sw tbody,
+  .sw-table tr,
+  .table-sw tr,
+  .sw-table td,
+  .table-sw td {
+    display: block !important;
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+  .sw-table thead,
+  .table-sw thead {
+    display: none !important; /* Sembunyikan kolum pengepala desktop */
+  }
+  .sw-table tr,
+  .table-sw tr {
+    background: var(--sw-surface) !important;
+    border: 1.5px solid var(--sw-border) !important;
+    border-radius: var(--sw-radius-card) !important;
+    padding: 1.25rem !important;
+    margin-bottom: 1.25rem !important;
+    box-shadow: var(--sw-shadow-xs) !important;
+    transition: var(--sw-transition-fast) !important;
+  }
+  .sw-table tr:hover,
+  .table-sw tr:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sw-shadow-sm);
+    border-color: var(--sw-primary-light) !important;
+  }
+  .sw-table tr:hover td,
+  .table-sw tr:hover td {
+    background: transparent !important;
+  }
+  .sw-table tbody td,
+  .table-sw tbody td {
+    padding: 0.625rem 0 !important;
+    border-bottom: 1px dashed var(--sw-divider) !important;
+    text-align: left !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    background: transparent !important;
+  }
+  .sw-table tbody td:last-child,
+  .table-sw tbody td:last-child {
+    border-bottom: none !important;
+    padding-top: 1rem !important;
+    margin-top: 0.5rem !important;
+    justify-content: center !important; /* Butang tindakan di tengah */
+  }
+  .sw-table tbody td::before,
+  .table-sw tbody td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: var(--sw-text-muted);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+  /* Sembunyikan label bagi kolum tanpa data-label atau bertanda Tindakan */
+  .sw-table tbody td:not([data-label])::before,
+  .table-sw tbody td:not([data-label])::before,
+  .sw-table tbody td[data-label="Tindakan"]::before,
+  .table-sw tbody td[data-label="Tindakan"]::before {
+    display: none !important;
+  }
+}

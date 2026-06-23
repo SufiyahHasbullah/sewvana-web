@@ -86,7 +86,7 @@
                         <button class="btn btn-purple btn-sm rounded-pill px-4 fw-bold" onclick="navigasiAdmin('pembayaran')">Urus Transaksi</button>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-hover align-middle m-0 text-warga-emas">
+                        <table class="table table-sw table-hover align-middle m-0 text-warga-emas">
                             <thead class="table-dark-header">
                                 <tr>
                                     <th class="py-3">No. Tempahan</th>
@@ -116,12 +116,12 @@
                                             else if("DEPOSIT_DIBAYAR".equals(log.get("status"))) statusStyle = "bg-info text-dark";
                                 %>
                                     <tr class="fw-medium log-row">
-                                        <td class="py-3">#<strong><%= log.get("id") %></strong></td>
-                                        <td><%= log.get("pelanggan") %></td>
-                                        <td><span class="badge bg-purple-light text-purple px-2 py-1"><%= log.get("penjahit") %></span></td>
-                                        <td class="text-muted"><%= log.get("tarikh") %></td>
-                                        <td class="text-end fw-bold text-dark">RM <%= log.get("amaun") %></td>
-                                        <td class="text-center">
+                                        <td data-label="No. Tempahan" class="py-3">#<strong><%= log.get("id") %></strong></td>
+                                        <td data-label="Pelanggan"><%= log.get("pelanggan") %></td>
+                                        <td data-label="Penjahit"><span class="badge bg-purple-light text-purple px-2 py-1"><%= log.get("penjahit") %></span></td>
+                                        <td data-label="Tarikh" class="text-muted"><%= log.get("tarikh") %></td>
+                                        <td data-label="Nilai" class="text-end fw-bold text-dark">RM <%= log.get("amaun") %></td>
+                                        <td data-label="Status" class="text-center">
                                             <span class="badge rounded-pill <%= statusStyle %> px-3 py-2"><%= log.get("status").replace("_", " ") %></span>
                                         </td>
                                     </tr>

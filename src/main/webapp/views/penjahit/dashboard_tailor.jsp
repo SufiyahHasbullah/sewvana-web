@@ -278,13 +278,12 @@
                                 else if ("SIAP".equals(status))                { badgeBg = "#10B981"; badgeFg = "white";   badgeLabel = "Siap"; }
                                 else if ("DIAMBIL".equals(status))             { badgeBg = "#1F2937"; badgeFg = "white";   badgeLabel = "Diambil"; }
                                 else if ("BATAL".equals(status))               { badgeBg = "#EF4444"; badgeFg = "white";   badgeLabel = "Batal"; }
-
                                 String namaPakaian = t.get("pakaian") != null ? t.get("pakaian").replace("_", " ") : "-";
                     %>
                         <tr class="tempahan-row">
-                            <td><span class="kod-tempahan"><%= t.get("kod_tempahan") != null ? t.get("kod_tempahan") : ("#" + t.get("id")) %></span></td>
-                            <td><span class="fw-semibold"><%= t.get("pelanggan") %></span></td>
-                             <td>
+                            <td data-label="Kod Tempahan"><span class="kod-tempahan"><%= t.get("kod_tempahan") != null ? t.get("kod_tempahan") : ("#" + t.get("id")) %></span></td>
+                            <td data-label="Pelanggan"><span class="fw-semibold"><%= t.get("pelanggan") %></span></td>
+                             <td data-label="Jenis Pakaian">
                                  <span class="badge bg-light border text-dark text-capitalize px-2 py-1" style="font-size:0.75rem;"><%= namaPakaian.toLowerCase() %></span>
                                  <% if (t.get("catatan") != null && !t.get("catatan").trim().isEmpty()) { %>
                                      <div class="text-secondary mt-1 lh-sm" style="font-size:0.78rem; font-weight: 500; white-space: pre-line; text-align: left;">
@@ -292,16 +291,16 @@
                                      </div>
                                  <% } %>
                              </td>
-                            <td style="color:var(--sw-text-muted);"><%= t.get("tarikh_tempah") %></td>
-                            <td class="text-end fw-bold" style="color:var(--sw-primary);">RM <%= t.get("bayaran") %></td>
-                            <td class="text-center">
+                            <td data-label="Tarikh Slot" style="color:var(--sw-text-muted);"><%= t.get("tarikh_tempah") %></td>
+                            <td data-label="Harga" class="text-end fw-bold" style="color:var(--sw-primary);">RM <%= t.get("bayaran") %></td>
+                            <td data-label="Status" class="text-center">
                                 <span class="badge-status" style="background:<%= badgeBg %>;color:<%= badgeFg %>;">
                                     <%= badgeLabel %>
                                 </span>
                             </td>
-                            <td class="text-center">
+                            <td data-label="Tindakan" class="text-center">
                                 <form action="${pageContext.request.contextPath}/pengurusan-tempahan" method="POST" class="d-inline">
-                                    <input type="hidden" name="tempahanId" value="<%= t.get("id") %>">
+                                    <input type="hidden" name="tempahanId" value='<%= t.get("id") %>'>
                                     <% if ("MENUNGGU_PENGESAHAN".equals(status)) { %>
                                         <button type="submit" name="action" value="sahkan" class="btn btn-sm btn-success rounded-pill px-3 fw-bold">
                                             <i class="bi bi-check-circle me-1"></i>Sahkan

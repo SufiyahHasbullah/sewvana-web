@@ -119,7 +119,7 @@
                         <h4 class="fw-bold m-0 text-warga-emas">Status Tempahan Terkini</h4>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-hover align-middle">
+                        <table class="table table-sw table-hover align-middle">
                             <thead class="table-light">
                                 <tr>
                                     <th>ID</th>
@@ -157,12 +157,12 @@
                                             }
                                 %>
                                 <tr>
-                                    <td><strong>#<%= t.get("id") %></strong></td>
-                                    <td><%= t.get("penjahit") %></td>
-                                    <td><span class="text-capitalize"><%= t.get("pakaian").toLowerCase() %></span></td>
-                                    <td><i class="bi bi-calendar3 me-1 text-muted"></i><%= t.get("tarikh_siap") %></td>
-                                    <td class="text-end fw-bold text-purple">RM <%= t.get("bayaran") %></td>
-                                    <td class="text-center">
+                                    <td data-label="ID"><strong>#<%= t.get("id") %></strong></td>
+                                    <td data-label="Penjahit"><%= t.get("penjahit") %></td>
+                                    <td data-label="Pakaian"><span class="text-capitalize"><%= t.get("pakaian").toLowerCase() %></span></td>
+                                    <td data-label="Tarikh Slot"><i class="bi bi-calendar3 me-1 text-muted"></i><%= t.get("tarikh_siap") %></td>
+                                    <td data-label="Harga" class="text-end fw-bold text-purple">RM <%= t.get("bayaran") %></td>
+                                    <td data-label="Status" class="text-center">
                                         <span class="badge <%= badgeClass %> px-3 py-2 rounded-pill fw-medium" style="font-size: 0.85rem;">
                                             <%= statusKemas %>
                                         </span>

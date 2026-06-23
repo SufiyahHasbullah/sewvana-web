@@ -39,7 +39,7 @@
                     </div>
                     
                     <div class="table-responsive">
-                        <table class="table table-hover align-middle m-0 text-warga-emas">
+                        <table class="table table-sw table-hover align-middle m-0 text-warga-emas">
                             <thead class="table-dark-header">
                                 <tr>
                                     <th class="py-3">ID Pengguna</th>
@@ -73,15 +73,15 @@
                                                 roleStyle = "bg-primary text-white";
                                             }
                                 %>
-                                    <tr class="fw-medium pengguna-row">
-                                        <td class="py-3">#<strong><%= p.get("id") %></strong></td>
-                                        <td><%= p.get("nama") %></td>
-                                        <td class="text-muted"><%= p.get("email") %></td>
-                                        <td><%= p.get("telefon") %></td>
-                                        <td>
+                                     <tr class="fw-medium pengguna-row">
+                                        <td data-label="ID Pengguna" class="py-3">#<strong><%= p.get("id") %></strong></td>
+                                        <td data-label="Nama"><%= p.get("nama") %></td>
+                                        <td data-label="E-mel" class="text-muted"><%= p.get("email") %></td>
+                                        <td data-label="No. Telefon"><%= p.get("telefon") %></td>
+                                        <td data-label="Peranan">
                                             <span class="badge rounded-pill <%= roleStyle %> px-3 py-2"><%= p.get("peranan") %></span>
                                         </td>
-                                        <td class="text-center">
+                                        <td data-label="Tindakan" class="text-center">
                                             <% if (!"PENTADBIR".equals(p.get("peranan"))) { %>
                                                 <form action="${pageContext.request.contextPath}/admin/urus-pengguna" method="POST" onsubmit="return confirm('Adakah anda pasti untuk memadam akaun pengguna <%= p.get("nama") %>?')" style="display:inline;">
                                                     <input type="hidden" name="action" value="padam">

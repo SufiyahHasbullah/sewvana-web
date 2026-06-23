@@ -39,7 +39,7 @@
                     </div>
                     
                     <div class="table-responsive">
-                        <table class="table table-hover align-middle m-0 text-warga-emas">
+                        <table class="table table-sw table-hover align-middle m-0 text-warga-emas">
                             <thead class="table-dark-header">
                                 <tr>
                                     <th class="py-3">No. Tempahan</th>
@@ -80,16 +80,16 @@
                                             }
                                 %>
                                     <tr class="fw-medium tempahan-row">
-                                        <td class="py-3">#<strong><%= t.get("id") %></strong></td>
-                                        <td><code class="text-dark fw-bold"><%= t.get("kod_tempahan") %></code></td>
-                                        <td><%= t.get("pelanggan") %></td>
-                                        <td><span class="badge bg-purple-light text-purple px-2 py-1"><%= t.get("penjahit") %></span></td>
-                                        <td><%= t.get("kategori_pakaian") %></td>
-                                        <td class="text-muted"><%= t.get("tarikh_slot") %></td>
-                                        <td class="text-center">
+                                        <td data-label="No. Tempahan" class="py-3">#<strong><%= t.get("id") %></strong></td>
+                                        <td data-label="Kod Tempahan"><code class="text-dark fw-bold"><%= t.get("kod_tempahan") %></code></td>
+                                        <td data-label="Pelanggan"><%= t.get("pelanggan") %></td>
+                                        <td data-label="Penjahit"><span class="badge bg-purple-light text-purple px-2 py-1"><%= t.get("penjahit") %></span></td>
+                                        <td data-label="Kategori"><%= t.get("kategori_pakaian") %></td>
+                                        <td data-label="Tarikh Slot" class="text-muted"><%= t.get("tarikh_slot") %></td>
+                                        <td data-label="Status" class="text-center">
                                             <span class="badge rounded-pill <%= statusStyle %> px-3 py-2"><%= t.get("status").replace("_", " ") %></span>
                                         </td>
-                                        <td class="text-center">
+                                        <td data-label="Tindakan" class="text-center">
                                             <% if (!"BATAL".equals(t.get("status")) && !"SELESAI".equals(t.get("status"))) { %>
                                                 <form action="${pageContext.request.contextPath}/admin/urus-tempahan" method="POST" onsubmit="return confirm('Adakah anda pasti untuk membatalkan tempahan ini?')" style="display:inline;">
                                                     <input type="hidden" name="action" value="batal">

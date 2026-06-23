@@ -27,7 +27,7 @@
 
         <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
             <div class="table-responsive">
-                <table class="table table-hover align-middle">
+                <table class="table table-sw table-hover align-middle">
                     <thead class="table-light">
                         <tr>
                             <th class="p-3">Kod Resit</th>
@@ -55,22 +55,22 @@
                                 for (TransaksiBayaran b : senarai) {
                         %>
                             <tr class="fw-medium payment-row">
-                                <td class="p-3 text-purple fw-bold"><%= b.getKodResit() %></td>
-                                <td>
+                                <td data-label="Kod Resit" class="p-3 text-purple fw-bold"><%= b.getKodResit() %></td>
+                                <td data-label="Tempahan">
                                     <strong><%= b.getKodTempahan() %></strong><br>
                                     <span class="badge bg-light text-dark text-capitalize"><%= b.getKategoriPakaian() != null ? b.getKategoriPakaian().toLowerCase().replace("_", " ") : "KEMEJA" %></span>
                                 </td>
-                                <td><%= b.getNamaPenjahit() != null ? b.getNamaPenjahit() : "Kedai Penjahit Pilihan" %></td>
-                                <td><span class="badge bg-purple-pale purple-text px-2 py-1"><%= b.getJenisBayaran() %></span></td>
-                                <td class="text-end fw-bold text-dark">RM <%= String.format("%.2f", b.getJumlahBayaran()) %></td>
-                                <td class="text-center">
+                                <td data-label="Penjahit"><%= b.getNamaPenjahit() != null ? b.getNamaPenjahit() : "Kedai Penjahit Pilihan" %></td>
+                                <td data-label="Jenis Fasa"><span class="badge bg-purple-pale purple-text px-2 py-1"><%= b.getJenisBayaran() %></span></td>
+                                <td data-label="Jumlah" class="text-end fw-bold text-dark">RM <%= String.format("%.2f", b.getJumlahBayaran()) %></td>
+                                <td data-label="Status" class="text-center">
                                     <% if ("BELUM_BAYAR".equals(b.getStatusBayaran())) { %>
                                         <span class="badge bg-warning text-dark rounded-pill px-3 py-2">BELUM BAYAR</span>
                                     <% } else { %>
                                         <span class="badge bg-success text-white rounded-pill px-3 py-2">SUCCESS</span>
                                     <% } %>
                                 </td>
-                                <td class="text-center">
+                                <td data-label="Tindakan" class="text-center">
                                     <a href="<%= request.getContextPath() %>/pembayaran/resit?Id=<%= b.getKodResit() %>" class="btn btn-sm btn-purple rounded-pill px-3 text-white">
                                         <i class="bi bi-receipt"></i> Lihat Resit
                                     </a>

@@ -158,7 +158,7 @@
                         <i class="bi bi-graph-up-arrow text-success me-2"></i> Aliran Tunai Bulanan (RM)
                     </h3>
                     <div class="table-responsive">
-                        <table class="table table-hover align-middle m-0 text-warga-emas">
+                        <table class="table table-sw table-hover align-middle m-0 text-warga-emas">
                             <thead class="table-dark-header">
                                 <tr>
                                     <th class="py-3">Bulan</th>
@@ -182,9 +182,9 @@
                                         for (Map<String, String> b : bulanan) {
                                 %>
                                     <tr class="fw-bold">
-                                        <td class="py-3"><i class="bi bi-calendar-event me-2 text-indigo"></i><%= b.get("bulan") %></td>
-                                        <td class="text-end text-success">RM <%= b.get("jumlah") %></td>
-                                        <td class="text-center"><span class="badge bg-success-light text-success rounded-pill px-3 py-2">Diaudit</span></td>
+                                        <td data-label="Bulan" class="py-3"><i class="bi bi-calendar-event me-2 text-indigo"></i><%= b.get("bulan") %></td>
+                                        <td data-label="Jumlah" class="text-end text-success">RM <%= b.get("jumlah") %></td>
+                                        <td data-label="Status" class="text-center"><span class="badge bg-success-light text-success rounded-pill px-3 py-2">Diaudit</span></td>
                                     </tr>
                                 <%
                                         }

@@ -178,10 +178,10 @@
                                     // bypass jika format tarikh silap
                                 }
                     %>
-                        <tr class="pesanan-row" data-pelanggan="<%= t.get("pelanggan").toLowerCase() %>" data-kod="<%= t.get("kod_tempahan").toLowerCase() %>" data-status="<%= status %>">
-                            <td><span class="kod-tempahan"><%= t.get("kod_tempahan") != null ? t.get("kod_tempahan") : ("#" + t.get("id")) %></span></td>
-                            <td><strong class="text-dark"><%= t.get("pelanggan") %></strong></td>
-                            <td>
+                        <tr class="pesanan-row" data-pelanggan='<%= t.get("pelanggan") != null ? t.get("pelanggan").toLowerCase() : "" %>' data-kod='<%= (t.get("kod_tempahan") != null ? t.get("kod_tempahan") : ("#" + t.get("id"))).toLowerCase() %>' data-status="<%= status %>">
+                            <td data-label="Kod Tempahan"><span class="kod-tempahan"><%= t.get("kod_tempahan") != null ? t.get("kod_tempahan") : ("#" + t.get("id")) %></span></td>
+                            <td data-label="Pelanggan"><strong class="text-dark"><%= t.get("pelanggan") %></strong></td>
+                            <td data-label="Perincian">
                                 <span class="badge bg-light border text-dark text-capitalize px-2 py-1 mb-1" style="font-size:0.75rem;"><%= namaPakaian.toLowerCase() %></span>
                                 <% if (t.get("catatan") != null && !t.get("catatan").trim().isEmpty()) { %>
                                     <div class="text-secondary mt-1 lh-sm" style="font-size:0.82rem; font-weight: 500; white-space: pre-line; text-align: left;">
@@ -189,16 +189,16 @@
                                     </div>
                                 <% } %>
                             </td>
-                            <td class="<%= dateClass %>" style="color:#5D5370;"><%= t.get("tarikh_tempah") %><%= dateBadge %></td>
-                            <td class="text-end fw-bold text-purple">RM <%= t.get("bayaran") %></td>
-                            <td class="text-center">
+                            <td data-label="Tarikh Slot" class="<%= dateClass %>" style="color:#5D5370;"><%= t.get("tarikh_tempah") %><%= dateBadge %></td>
+                            <td data-label="Amaun" class="text-end fw-bold text-purple">RM <%= t.get("bayaran") %></td>
+                            <td data-label="Status" class="text-center">
                                 <span class="badge-status" style="background:<%= badgeBg %>;color:<%= badgeFg %>;">
                                     <%= badgeLabel %>
                                 </span>
                             </td>
-                            <td class="text-center">
+                            <td data-label="Tindakan" class="text-center">
                                 <form action="${pageContext.request.contextPath}/pengurusan-tempahan" method="POST" class="d-inline">
-                                    <input type="hidden" name="tempahanId" value="<%= t.get("id") %>">
+                                    <input type="hidden" name="tempahanId" value='<%= t.get("id") %>'>
                                     <% if ("MENUNGGU_PENGESAHAN".equals(status)) { %>
                                         <button type="submit" name="action" value="sahkan" class="btn btn-sm btn-success rounded-pill px-3 fw-bold">
                                             Sahkan

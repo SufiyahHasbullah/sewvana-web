@@ -39,7 +39,7 @@
                     </div>
                     
                     <div class="table-responsive">
-                        <table class="table table-hover align-middle m-0 text-warga-emas">
+                        <table class="table table-sw table-hover align-middle m-0 text-warga-emas">
                             <thead class="table-dark-header">
                                 <tr>
                                     <th class="py-3">Kod Resit</th>
@@ -76,16 +76,16 @@
                                                 statusStyle = "bg-danger text-white";
                                             }
                                 %>
-                                    <tr class="fw-medium pembayaran-row">
-                                        <td class="py-3"><code><%= p.get("kod_resit") %></code></td>
-                                        <td><code class="text-dark"><%= p.get("kod_tempahan") %></code></td>
-                                        <td><%= p.get("pelanggan") %></td>
-                                        <td><span class="badge bg-purple-light text-purple px-2 py-1"><%= p.get("penjahit") %></span></td>
-                                        <td><span class="small fw-bold"><%= p.get("jenis_bayaran") %></span></td>
-                                        <td><%= p.get("kaedah_bayaran") %></td>
-                                        <td class="text-end fw-bold text-dark">RM <%= p.get("jumlah_bayaran") %></td>
-                                        <td class="text-muted"><%= p.get("tarikh_bayaran") %></td>
-                                        <td class="text-center">
+                                     <tr class="fw-medium pembayaran-row">
+                                        <td data-label="Kod Resit" class="py-3"><code><%= p.get("kod_resit") %></code></td>
+                                        <td data-label="Kod Tempahan"><code class="text-dark"><%= p.get("kod_tempahan") %></code></td>
+                                        <td data-label="Pelanggan"><%= p.get("pelanggan") %></td>
+                                        <td data-label="Penjahit"><span class="badge bg-purple-light text-purple px-2 py-1"><%= p.get("penjahit") %></span></td>
+                                        <td data-label="Jenis Bayaran"><span class="small fw-bold"><%= p.get("jenis_bayaran") %></span></td>
+                                        <td data-label="Kaedah"><%= p.get("kaedah_bayaran") %></td>
+                                        <td data-label="Amaun" class="text-end fw-bold text-dark">RM <%= p.get("jumlah_bayaran") %></td>
+                                        <td data-label="Tarikh" class="text-muted"><%= p.get("tarikh_bayaran") %></td>
+                                        <td data-label="Status" class="text-center">
                                             <span class="badge rounded-pill <%= statusStyle %> px-3 py-2"><%= p.get("status_bayaran") %></span>
                                         </td>
                                     </tr>

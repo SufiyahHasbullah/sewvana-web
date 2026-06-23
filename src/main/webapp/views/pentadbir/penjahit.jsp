@@ -39,7 +39,7 @@
                     </div>
                     
                     <div class="table-responsive">
-                        <table class="table table-hover align-middle m-0 text-warga-emas">
+                        <table class="table table-sw table-hover align-middle m-0 text-warga-emas">
                             <thead class="table-dark-header">
                                 <tr>
                                     <th class="py-3">ID Penjahit</th>
@@ -66,9 +66,9 @@
                                     } else {
                                         for (Map<String, String> p : senarai) {
                                 %>
-                                    <tr class="fw-medium penjahit-row">
-                                        <td class="py-3">#<strong><%= p.get("id") %></strong></td>
-                                        <td>
+                                     <tr class="fw-medium penjahit-row">
+                                        <td data-label="ID Penjahit" class="py-3">#<strong><%= p.get("id") %></strong></td>
+                                        <td data-label="Penjahit">
                                             <div class="d-flex align-items-center">
                                                 <div class="admin-icon-box bg-purple-light me-3" style="width: 40px; height: 40px; font-size: 1.1rem;">
                                                     <i class="bi bi-scissors purple-text"></i>
@@ -79,15 +79,15 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="text-muted"><%= p.get("email") %></td>
-                                        <td><%= p.get("telefon") %></td>
-                                        <td class="text-center">
+                                        <td data-label="E-mel Rasmi" class="text-muted"><%= p.get("email") %></td>
+                                        <td data-label="No. Telefon"><%= p.get("telefon") %></td>
+                                        <td data-label="Jumlah Servis" class="text-center">
                                             <span class="badge bg-light text-dark border px-3 py-2"><%= p.get("total_servis") %> Servis</span>
                                         </td>
-                                        <td class="text-center">
+                                        <td data-label="Jumlah Tempahan" class="text-center">
                                             <span class="badge bg-light text-dark border px-3 py-2"><%= p.get("total_tempahan") %> Tempahan</span>
                                         </td>
-                                        <td class="text-center">
+                                        <td data-label="Tindakan" class="text-center">
                                             <form action="${pageContext.request.contextPath}/admin/urus-penjahit" method="POST" onsubmit="return confirm('Adakah anda pasti untuk menamatkan rakan niaga <%= p.get("nama") %>?')" style="display:inline;">
                                                 <input type="hidden" name="action" value="padam">
                                                 <input type="hidden" name="id" value="<%= p.get("id") %>">

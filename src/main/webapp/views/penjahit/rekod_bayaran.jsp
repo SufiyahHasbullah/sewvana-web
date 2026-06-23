@@ -125,14 +125,14 @@
                                 if ("KAD_KREDIT".equals(kaedah)) kaedahTxt = "Kad Kredit / Debit";
                     %>
                         <tr class="bayaran-row">
-                            <td><span class="kod-resit"><%= p.get("kod_resit") %></span></td>
-                            <td><span class="text-secondary small font-monospace"><%= p.get("kod_tempahan") %></span></td>
-                            <td><strong class="text-dark"><%= p.get("pelanggan") %></strong></td>
-                            <td><span class="text-dark"><%= jenisTxt %></span></td>
-                            <td><span class="text-secondary small"><%= kaedahTxt %></span></td>
-                            <td style="color:#5D5370;"><%= p.get("tarikh") %></td>
-                            <td class="text-end fw-bold text-success">RM <%= p.get("amaun") %></td>
-                            <td class="text-center">
+                            <td data-label="Kod Resit"><span class="kod-resit"><%= p.get("kod_resit") %></span></td>
+                            <td data-label="Kod Tempahan"><span class="text-secondary small font-monospace"><%= p.get("kod_tempahan") %></span></td>
+                            <td data-label="Pelanggan"><strong class="text-dark"><%= p.get("pelanggan") %></strong></td>
+                            <td data-label="Jenis"><span class="text-dark"><%= jenisTxt %></span></td>
+                            <td data-label="Kaedah"><span class="text-secondary small"><%= kaedahTxt %></span></td>
+                            <td data-label="Tarikh" style="color:#5D5370;"><%= p.get("tarikh") %></td>
+                            <td data-label="Amaun" class="text-end fw-bold text-success">RM <%= p.get("amaun") %></td>
+                            <td data-label="Status" class="text-center">
                                 <span class="badge bg-opacity-75 px-3 py-1 rounded-pill fw-bold" style="background-color:<%= badgeBg %>; color:<%= badgeFg %>; font-size:0.75rem;">
                                     <%= status %>
                                 </span>
