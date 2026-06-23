@@ -1,0 +1,367 @@
+/* ==========================================================================
+   INDEX / LANDING PAGE — Sewvana
+   Require: sewvana-design-system.css (diload terlebih dahulu)
+   ========================================================================== */
+
+/* === Base === */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #2D3748;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+}
+
+/* === Helpers === */
+.py-100 {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.bg-dark-title {
+    background-color: #1A202C;
+}
+
+/* === Gradient === */
+.bg-gradient-purple {
+    background: linear-gradient(135deg, var(--sw-purple-dark, #9B5FC0) 0%, var(--sw-purple, #B57EDC) 60%, var(--sw-purple-light, #CFA3E8) 100%);
+}
+
+/* ==========================================================================
+   1. NAVBAR
+   ========================================================================== */
+.navbar-custom {
+    transition: all 0.4s ease-in-out;
+    padding: 20px 0;
+    background-color: transparent;
+}
+
+.navbar-custom .navbar-brand {
+    color: #FFFFFF;
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.navbar-custom .nav-link {
+    color: rgba(255, 255, 255, 0.82);
+    font-weight: 500;
+    margin: 0 8px;
+    transition: var(--sw-transition-fast);
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+    color: #FFFFFF;
+}
+
+/* Nav buttons */
+.btn-login {
+    color: #FFFFFF;
+    font-weight: 500;
+    transition: var(--sw-transition-fast);
+}
+
+.btn-login:hover {
+    color: var(--sw-purple-pale);
+}
+
+.btn-register {
+    background-color: #FFFFFF;
+    color: var(--sw-purple);
+    border-radius: var(--sw-radius-pill);
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: var(--sw-transition);
+}
+
+.btn-register:hover {
+    background-color: var(--sw-purple-pale);
+    transform: translateY(-2px);
+}
+
+/* Scrolled state */
+.navbar-custom.scrolled {
+    background-color: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 12px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.navbar-custom.scrolled .navbar-brand {
+    color: var(--sw-purple);
+}
+
+.navbar-custom.scrolled .nav-link {
+    color: var(--sw-text);
+}
+
+.navbar-custom.scrolled .nav-link:hover,
+.navbar-custom.scrolled .nav-link.active {
+    color: var(--sw-purple);
+}
+
+.navbar-custom.scrolled .btn-login {
+    color: var(--sw-purple);
+}
+
+.navbar-custom.scrolled .btn-register {
+    background-color: var(--sw-purple);
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   2. HERO SECTION
+   ========================================================================== */
+.hero-section {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--sw-purple-xdark, #3D2C5E) 0%, var(--sw-purple, #B57EDC) 60%, var(--sw-purple-light, #CFA3E8) 100%);
+    position: relative;
+    padding-top: 120px;
+}
+
+/* Decorative shape at bottom */
+.hero-shape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: #FFFFFF;
+    clip-path: ellipse(60% 100% at 50% 100%);
+}
+
+/* Accent text */
+.text-accent {
+    color: #FDE68A;
+}
+
+/* Hero buttons */
+.btn-primary-premium {
+    background-color: #FDE68A;
+    color: var(--sw-purple-xdark);
+    font-weight: 700;
+    border-radius: var(--sw-radius-pill);
+    border: none;
+    transition: var(--sw-transition);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary-premium:hover {
+    background-color: #FFFFFF;
+    color: var(--sw-purple);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.btn-outline-white {
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    color: #FFFFFF;
+    font-weight: 500;
+    border-radius: var(--sw-radius-pill);
+    transition: var(--sw-transition);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(4px);
+}
+
+.btn-outline-white:hover {
+    background-color: rgba(255, 255, 255, 0.20);
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+/* Floating image */
+.image-floating-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.hero-img {
+    animation: swFloat 6s ease-in-out infinite;
+}
+
+@keyframes swFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-14px);
+    }
+}
+
+.floating-badge {
+    position: absolute;
+    bottom: 30px;
+    left: -20px;
+    animation: swFloat 5s ease-in-out infinite alternate;
+}
+
+.icon-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.bg-light-purple {
+    background-color: var(--sw-purple-pale);
+}
+
+/* ==========================================================================
+   3. FEATURE CARDS
+   ========================================================================== */
+.card-premium {
+    background-color: #F8F9FA;
+    border-radius: var(--sw-radius-lg);
+    transition: var(--sw-transition);
+    border: 1px solid transparent;
+}
+
+.card-premium:hover {
+    transform: translateY(-10px);
+    background-color: #FFFFFF;
+    border-color: var(--sw-purple-pale);
+    box-shadow: 0 20px 40px rgba(124, 58, 237, 0.10);
+}
+
+.feature-icon-box {
+    width: 62px;
+    height: 62px;
+    background-color: var(--sw-purple-pale);
+    color: var(--sw-purple);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.text-dark-title {
+    color: #1A202C;
+}
+
+/* ==========================================================================
+   4. HOW IT WORKS (TIMELINE)
+   ========================================================================== */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 35px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--sw-purple-pale), var(--sw-purple), var(--sw-purple-pale));
+    z-index: 1;
+}
+
+.step-number {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--sw-purple-light), var(--sw-purple));
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    border: 5px solid #FFFFFF;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.30);
+}
+
+/* ==========================================================================
+   6. TESTIMONIAL CAROUSEL
+   ========================================================================== */
+.profile-avatar {
+    width: 58px;
+    height: 58px;
+    object-fit: cover;
+    border: 3px solid var(--sw-purple-pale);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+/* ==========================================================================
+   7. CTA BUTTON
+   ========================================================================== */
+.btn-light-premium {
+    background-color: #FFFFFF;
+    color: var(--sw-purple);
+    font-weight: 700;
+    transition: var(--sw-transition);
+}
+
+.btn-light-premium:hover {
+    background-color: #FDE68A;
+    color: var(--sw-purple-xdark);
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   8. FOOTER
+   ========================================================================== */
+.footer-links a:hover,
+.social-icons a:hover {
+    color: var(--sw-purple) !important;
+    transition: var(--sw-transition-fast);
+}
+
+/* ==========================================================================
+   9. COUNTER SECTION
+   ========================================================================== */
+.counter-section .counter-value {
+    font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    .navbar-custom {
+        background-color: rgba(255, 255, 255, 0.97) !important;
+        backdrop-filter: blur(12px);
+        padding: 14px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    }
+
+    .navbar-custom .navbar-brand,
+    .navbar-custom .btn-login {
+        color: var(--sw-purple);
+    }
+
+    .navbar-custom .nav-link {
+        color: var(--sw-text);
+        margin: 8px 0;
+    }
+
+    .navbar-custom .btn-register {
+        background-color: var(--sw-purple);
+        color: #FFFFFF;
+    }
+
+    .hero-section {
+        min-height: auto;
+        padding-bottom: 140px;
+    }
+
+    .timeline-container::before {
+        display: none;
+    }
+
+    .step-number {
+        border-color: #FFFFFF;
+    }
+}

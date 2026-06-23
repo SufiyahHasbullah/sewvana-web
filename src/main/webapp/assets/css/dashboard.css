@@ -1,0 +1,205 @@
+/* ==========================================================================
+   DASHBOARD — Sewvana (Pelanggan & Penjahit)
+   Require: sewvana-design-system.css (diload terlebih dahulu)
+   ========================================================================== */
+
+/* === Base Layout === */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--sw-bg);
+    color: var(--sw-text);
+    margin: 0;
+    padding: 0;
+}
+
+/* === Sidebar (Pakai .sw-sidebar dari design system) === */
+/* CSS sidebar utama ada dalam sewvana-design-system.css */
+/* Fail ini hanya override/extend yang perlu sahaja */
+
+/* Backward compat — class lama masih berfungsi */
+.sidebar {
+    width: var(--sw-sidebar-width);
+    height: 100vh;
+    background: linear-gradient(180deg, var(--sw-purple-light) 0%, var(--sw-purple) 40%, var(--sw-purple-dark) 100%);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 4px 0 20px rgba(124, 58, 237, 0.15);
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.sidebar::-webkit-scrollbar { display: none; }
+
+.sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.72);
+    padding: 11px 18px;
+    border-radius: var(--sw-radius);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    transition: var(--sw-transition);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+.sidebar .nav-link i {
+    width: 22px;
+    text-align: center;
+}
+
+.sidebar .nav-link.active,
+.sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.20);
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.sidebar .nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60%;
+    background: #FFFFFF;
+    border-radius: 0 4px 4px 0;
+}
+
+/* === Main Content === */
+.main-content {
+    margin-left: var(--sw-sidebar-width);
+    padding: 40px;
+    min-height: 100vh;
+}
+
+/* === Stat Cards === */
+.card-stat {
+    padding: 26px;
+    border-radius: var(--sw-radius-xl);
+    border: none;
+    height: 100%;
+    cursor: pointer;
+    transition: var(--sw-transition);
+}
+
+.card-stat:hover { transform: translateY(-5px); box-shadow: var(--sw-shadow-md); }
+
+.card-purple {
+    background: linear-gradient(135deg, var(--sw-purple-light), var(--sw-purple));
+    color: #FFFFFF;
+    box-shadow: var(--sw-shadow-purple);
+}
+
+.card-lavender {
+    background-color: var(--sw-purple-pale);
+    color: var(--sw-text);
+}
+
+.card-white {
+    background-color: var(--sw-surface);
+    border: 2px solid var(--sw-border);
+}
+
+.border-dashed {
+    border: 2px dashed var(--sw-purple) !important;
+    background-color: var(--sw-surface) !important;
+}
+
+/* === Category Cards === */
+.cat-card {
+    background: var(--sw-surface);
+    border-radius: var(--sw-radius-lg);
+    border: 2px solid var(--sw-border);
+    transition: var(--sw-transition);
+    cursor: pointer;
+}
+
+.cat-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--sw-purple);
+    background-color: var(--sw-purple-pale);
+    box-shadow: var(--sw-shadow-purple);
+}
+
+.cat-icon {
+    font-size: 2.2rem;
+    color: var(--sw-purple);
+}
+
+/* === Content Cards === */
+.card {
+    border-radius: var(--sw-radius-lg) !important;
+}
+
+/* Icon Box (for tailor dashboard) */
+.icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--sw-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.bg-purple-light  { background-color: var(--sw-purple-pale); }
+.bg-info-light    { background-color: var(--sw-info-pale); }
+.bg-white-transparent { background-color: rgba(255,255,255,0.15); }
+
+/* === Table Headers === */
+.table-purple-header th {
+    background-color: var(--sw-purple-pale);
+    color: var(--sw-purple);
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    padding: 14px 12px;
+}
+
+/* === Bottom Navigation (Mobile) === */
+.bottom-nav {
+    z-index: 1050;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+}
+
+.bottom-nav .nav-link {
+    font-size: 1.3rem;
+    color: var(--sw-text-light);
+    font-family: 'Poppins', sans-serif;
+    padding: 6px 4px;
+    text-align: center;
+    display: block;
+    transition: var(--sw-transition-fast);
+    font-size: 0.7rem;
+}
+
+.bottom-nav .nav-link i { display: block; font-size: 1.3rem; }
+.bottom-nav .nav-link.active,
+.bottom-nav .nav-link:hover { color: var(--sw-purple); }
+
+/* === Penjahit Dashboard — Tracking wider === */
+.tracking-wider { letter-spacing: 0.08em; }
+
+/* border-start accents */
+.border-start-purple { border-left: 5px solid var(--sw-purple) !important; }
+
+/* shadow-purple */
+.shadow-purple { box-shadow: var(--sw-shadow-purple); }
+
+/* === Responsive === */
+@media (max-width: 991.98px) {
+    .sidebar { display: none !important; }
+    .main-content {
+        margin-left: 0;
+        padding: 24px 16px 100px;
+    }
+}

@@ -1,0 +1,81 @@
+<%-- ============================================================
+     sidebar-customer.jspf — Sidebar untuk Pelanggan (Customer)
+     Gradient: Matte Plum (#3D2C5E → #6B4E9B)
+     Usage: <%@ include file="/WEB-INF/jspf/sidebar-customer.jspf" %>
+     Requires: session attribute "pengguna" (Pengguna object)
+     ============================================================ --%>
+<%@ page import="com.sewvana.model.Pengguna" %>
+<%
+    Pengguna _custUser = (Pengguna) session.getAttribute("pengguna");
+    String _custName = (_custUser != null) ? _custUser.getNama() : "Pelanggan";
+    String _custInitial = (_custName != null && !_custName.isEmpty()) ? String.valueOf(_custName.charAt(0)).toUpperCase() : "P";
+    String _currentUri = request.getRequestURI();
+%>
+
+<div class="sewvana-sidebar" id="swSidebar">
+
+    <%-- Brand Header --%>
+    <div class="sidebar-header">
+        <h1 class="logo-title">
+            <i class="bi bi-scissors"></i> Sewvana
+        </h1>
+        <p class="logo-subtitle">Platform Jahitan Digital</p>
+    </div>
+
+    <%-- User Profile --%>
+    <div class="sidebar-profile">
+        <div class="sidebar-avatar"><%= _custInitial %></div>
+        <div>
+            <div class="sidebar-user-name"><%= _custName %></div>
+            <div class="sidebar-user-role">Pelanggan</div>
+        </div>
+    </div>
+
+    <%-- Navigation --%>
+    <nav class="sidebar-menu">
+        <span class="sidebar-section-title">Menu Utama</span>
+
+        <a href="${pageContext.request.contextPath}/dashboard-pelanggan"
+           class="menu-item <%= _currentUri.contains("dashboard_cust") || _currentUri.contains("dashboard-pelanggan") ? "active" : "" %>">
+            <i class="bi bi-grid-fill"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="${pageContext.request.contextPath}/pelanggan/cari-penjahit"
+           class="menu-item <%= _currentUri.contains("cari_tailor") || _currentUri.contains("cari-penjahit") || _currentUri.contains("/pelanggan/cari") ? "active" : "" %>">
+            <i class="bi bi-search-heart"></i>
+            <span>Cari Penjahit</span>
+        </a>
+
+        <a href="${pageContext.request.contextPath}/pelanggan/tempahan"
+           class="menu-item <%= _currentUri.contains("tempahan") ? "active" : "" %>">
+            <i class="bi bi-bag-check-fill"></i>
+            <span>Tempahan Saya</span>
+        </a>
+
+        <span class="sidebar-section-title">Kewangan</span>
+
+        <a href="${pageContext.request.contextPath}/pelanggan/sejarah-bayaran"
+           class="menu-item <%= (_currentUri.contains("sejarah_pembayaran") || _currentUri.contains("sejarah-bayaran")) ? "active" : "" %>">
+            <i class="bi bi-credit-card-2-back-fill"></i>
+            <span>Sejarah Bayaran</span>
+        </a>
+
+        <span class="sidebar-section-title">Akaun</span>
+
+        <a href="${pageContext.request.contextPath}/pelanggan/profil" 
+           class="menu-item <%= _currentUri.contains("profil") ? "active" : "" %>">
+            <i class="bi bi-person-fill"></i>
+            <span>Profil Saya</span>
+        </a>
+
+        <a href="${pageContext.request.contextPath}/logout"
+           class="menu-item logout-item" style="margin-top: auto;">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Log Keluar</span>
+        </a>
+    </nav>
+</div>
+
+<%-- Mobile Overlay --%>
+<div class="sw-sidebar-overlay" id="swOverlay" onclick="closeSidebar()"></div>

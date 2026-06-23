@@ -1,0 +1,36 @@
+/* ============================================================================
+   SEWVANA DESIGN SYSTEM — Master Entry Point (Phase 2 Wrapper)
+   Imports all core modules in correct order.
+   Usage: <link rel="stylesheet" href=".../assets/css/sewvana-design-system.css">
+   ============================================================================ */
+
+/* 1. Tokens (MUST be first — defines all CSS variables) */
+@import url('core/variables.css');
+
+/* 2. Base (reset + typography) */
+@import url('core/base.css');
+
+/* 3. Components (buttons, cards, badges, inputs, tables) */
+@import url('core/components.css');
+
+/* 4. Layout (sidebar, main content, responsive) */
+@import url('core/layout.css');
+
+/* ============================================================================
+   BACKWARD COMPATIBILITY ALIASES
+   Pastikan class lama dari Phase 1 masih berfungsi.
+   ============================================================================ */
+
+/* --sw-purple → --sw-primary */
+:root {
+  --sw-purple:       var(--sw-primary);
+  --sw-purple-light: var(--sw-primary-light);
+  --sw-purple-pale:  var(--sw-primary-pale);
+  --sw-purple-dark:  var(--sw-primary-dark);
+  --sw-text-purple:  var(--sw-primary);
+  --sw-purple-xdark: #3D2C5E;
+  --sw-admin-bg:     var(--sw-admin-start);
+  --sw-bg-light:     var(--sw-bg);
+  --sw-radius-lg:    var(--sw-radius-card);
+  --sw-radius-xl:    var(--sw-radius-xl);
+}

@@ -1,0 +1,62 @@
+/* ==========================================================================
+   PEMBAYARAN — Sewvana (Payment Page)
+   Require: sewvana-design-system.css (diload terlebih dahulu)
+   ========================================================================== */
+
+body { font-family: 'Poppins', sans-serif; background-color: var(--sw-bg); }
+
+/* Colour Utilities */
+.bg-soft-lavender { background-color: var(--sw-purple-pale) !important; }
+.bg-soft-purple   { background-color: #F5F3FF; }
+.bg-purple        { background-color: var(--sw-purple) !important; }
+.purple-text      { color: var(--sw-purple) !important; }
+
+/* Payment Method Cards */
+.btn-outline-purple {
+    border: 2px solid var(--sw-purple);
+    color: var(--sw-purple);
+    font-weight: 600;
+    border-radius: var(--sw-radius);
+    transition: var(--sw-transition);
+}
+
+.btn-outline-purple:hover,
+.btn-check:checked + .btn-outline-purple {
+    background-color: var(--sw-purple) !important;
+    border-color: var(--sw-purple) !important;
+    color: #FFFFFF !important;
+    transform: scale(1.02);
+    box-shadow: var(--sw-shadow-purple);
+}
+
+.card-kaedah {
+    cursor: pointer;
+    transition: var(--sw-transition);
+    border-radius: var(--sw-radius) !important;
+}
+
+.card-kaedah:hover {
+    border-color: var(--sw-purple) !important;
+    background-color: var(--sw-purple-pale);
+    transform: translateY(-2px);
+    box-shadow: var(--sw-shadow);
+}
+
+/* Grand Submit Button */
+.btn-purple-grand {
+    background: linear-gradient(135deg, var(--sw-purple-light), var(--sw-purple-dark));
+    border: none;
+    border-radius: var(--sw-radius);
+    font-weight: 700;
+    color: #FFFFFF;
+    padding: 14px;
+    font-size: 1.05rem;
+    transition: var(--sw-transition);
+    box-shadow: var(--sw-shadow-purple);
+}
+
+.btn-purple-grand:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.35);
+    color: #FFFFFF;
+}

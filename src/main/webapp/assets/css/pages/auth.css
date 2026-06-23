@@ -1,0 +1,172 @@
+/* ============================================================================
+   AUTH PAGES — Login + Register (Sewvana Phase 2)
+   ============================================================================ */
+
+/* === Auth Layout === */
+.sw-auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+}
+
+/* Left panel — decorative */
+.sw-auth-panel-left {
+  flex: 1;
+  background: linear-gradient(160deg, var(--sw-sidebar-start) 0%, var(--sw-sidebar-end) 55%, var(--sw-accent) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.sw-auth-panel-left::before {
+  content: '';
+  position: absolute;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  top: -80px; right: -80px;
+}
+.sw-auth-panel-left::after {
+  content: '';
+  position: absolute;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  bottom: -50px; left: -50px;
+}
+
+.sw-auth-brand-icon {
+  width: 70px; height: 70px;
+  border-radius: var(--sw-radius-card);
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.20);
+}
+.sw-auth-brand-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+.sw-auth-brand-sub {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.70);
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Right panel — form */
+.sw-auth-panel-right {
+  width: 480px;
+  background: var(--sw-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2.5rem;
+}
+.sw-auth-form-box {
+  width: 100%;
+  max-width: 380px;
+}
+
+.sw-auth-title {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: var(--sw-text);
+  margin-bottom: 0.375rem;
+}
+.sw-auth-subtitle {
+  font-size: 0.9rem;
+  color: var(--sw-text-muted);
+  margin-bottom: 2rem;
+}
+
+/* Input group with floating label */
+.sw-input-group {
+  margin-bottom: 1.125rem;
+  position: relative;
+}
+.sw-input-group .sw-input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--sw-text-muted);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: color 0.2s;
+}
+.sw-input-group .form-control {
+  padding-left: 2.75rem;
+}
+.sw-input-group:focus-within .sw-input-icon {
+  color: var(--sw-primary);
+}
+
+/* Divider with text */
+.sw-divider-text {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+  color: var(--sw-text-muted);
+  font-size: 0.8rem;
+}
+.sw-divider-text::before,
+.sw-divider-text::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--sw-border);
+}
+
+/* Auth submit button */
+.sw-auth-submit {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* Password toggle button */
+.sw-pass-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--sw-text-muted);
+  cursor: pointer;
+  padding: 0.25rem;
+  font-size: 1rem;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.sw-pass-toggle:hover { color: var(--sw-primary); }
+
+/* Alert messages */
+.sw-auth-alert {
+  padding: 0.75rem 1rem;
+  border-radius: var(--sw-radius);
+  font-size: 0.875rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sw-auth-alert.error   { background: var(--sw-danger-pale); color: #8B2A42; border: 1px solid var(--sw-danger-border); }
+.sw-auth-alert.success { background: var(--sw-success-pale); color: #2D6A4F; border: 1px solid var(--sw-success-border); }
+
+/* Responsive */
+@media (max-width: 767.98px) {
+  .sw-auth-panel-left  { display: none; }
+  .sw-auth-panel-right { width: 100%; padding: 2rem 1.5rem; }
+}

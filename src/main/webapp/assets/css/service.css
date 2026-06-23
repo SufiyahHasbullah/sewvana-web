@@ -1,0 +1,41 @@
+/* ── service.css — Gaya Pengurusan Servis ──────────────────── */
+
+.services-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid var(--sw-border);
+}
+
+.service-item {
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    transition: var(--sw-transition);
+}
+
+.service-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    border-color: var(--sw-primary-pale);
+}
+
+.service-price {
+    font-weight: 700;
+    color: var(--sw-primary);
+}
+
+/* Modals */
+.modal-content {
+    border-radius: 16px !important;
+}
+
+.form-label {
+    font-weight: 700;
+    color: #4C3C6E;
+}
+
+.form-control:focus {
+    border-color: var(--sw-primary);
+    box-shadow: 0 0 0 0.25rem rgba(107, 78, 155, 0.25);
+}

@@ -1,0 +1,82 @@
+<%-- ============================================================
+     sidebar-tailor.jspf — Sidebar untuk Penjahit (Tailor)
+     Gradient: Matte Plum (#3D2C5E → #6B4E9B) — sama dengan Customer
+     Usage: <%@ include file="/WEB-INF/jspf/sidebar-tailor.jspf" %>
+     ============================================================ --%>
+<%@ page import="com.sewvana.model.Pengguna" %>
+<%
+    Pengguna _tailorUser = (Pengguna) session.getAttribute("pengguna");
+    String _tailorName = (_tailorUser != null) ? _tailorUser.getNama() : "Penjahit";
+    String _tailorInitial = (_tailorName != null && !_tailorName.isEmpty()) ? String.valueOf(_tailorName.charAt(0)).toUpperCase() : "P";
+    String _tailorUri = request.getRequestURI();
+%>
+
+<div class="sewvana-sidebar" id="swSidebar">
+
+    <div class="sidebar-header">
+        <h1 class="logo-title">
+            <i class="bi bi-scissors"></i> Sewvana
+        </h1>
+        <p class="logo-subtitle">Akaun Penjahit</p>
+    </div>
+
+    <div class="sidebar-profile">
+        <div class="sidebar-avatar"><%= _tailorInitial %></div>
+        <div>
+            <div class="sidebar-user-name"><%= _tailorName %></div>
+            <div class="sidebar-user-role">Penjahit / Tailor</div>
+        </div>
+    </div>
+
+    <nav class="sidebar-menu">
+        <span class="sidebar-section-title">Menu Utama</span>
+
+        <a href="${pageContext.request.contextPath}/penjahit/dashboard"
+           class="menu-item <%= (_tailorUri.contains("dashboard_tailor") || _tailorUri.contains("/penjahit/dashboard")) ? "active" : "" %>">
+            <i class="bi bi-grid-fill"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="${pageContext.request.contextPath}/penjahit/slot"
+           class="menu-item <%= (_tailorUri.contains("urus_slot") || _tailorUri.contains("/penjahit/slot")) ? "active" : "" %>">
+            <i class="bi bi-calendar-range-fill"></i>
+            <span>Urus Slot Masa</span>
+        </a>
+
+        <a href="${pageContext.request.contextPath}/penjahit/pesanan"
+           class="menu-item <%= (_tailorUri.contains("pesanan") || _tailorUri.contains("/penjahit/pesanan")) ? "active" : "" %>">
+            <i class="bi bi-bag-fill"></i>
+            <span>Pesanan Masuk</span>
+        </a>
+
+        <a href="${pageContext.request.contextPath}/penjahit/servis"
+           class="menu-item <%= (_tailorUri.contains("servis") || _tailorUri.contains("service")) ? "active" : "" %>">
+            <i class="bi bi-scissors"></i>
+            <span>Urus Servis</span>
+        </a>
+
+        <span class="sidebar-section-title">Kewangan</span>
+
+        <a href="${pageContext.request.contextPath}/penjahit/rekod-bayaran"
+           class="menu-item <%= (_tailorUri.contains("rekod") || _tailorUri.contains("/penjahit/rekod-bayaran")) ? "active" : "" %>">
+            <i class="bi bi-receipt-cutoff"></i>
+            <span>Rekod Bayaran</span>
+        </a>
+
+        <span class="sidebar-section-title">Akaun</span>
+
+        <a href="${pageContext.request.contextPath}/penjahit/profil-kedai"
+           class="menu-item <%= (_tailorUri.contains("profil") || _tailorUri.contains("/penjahit/profil-kedai")) ? "active" : "" %>">
+            <i class="bi bi-shop"></i>
+            <span>Profil Kedai</span>
+        </a>
+
+        <a href="${pageContext.request.contextPath}/logout"
+           class="menu-item logout-item" style="margin-top: auto;">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Log Keluar</span>
+        </a>
+    </nav>
+</div>
+
+<div class="sw-sidebar-overlay" id="swOverlay" onclick="closeSidebar()"></div>

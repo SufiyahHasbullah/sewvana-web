@@ -1,0 +1,206 @@
+/* ==========================================================================
+   DASHBOARD ADMIN — Sewvana (Panel Kawalan Pusat)
+   Require: sewvana-design-system.css (diload terlebih dahulu)
+   ========================================================================== */
+
+/* === Base === */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--sw-bg);
+    color: var(--sw-text);
+    margin: 0;
+    padding: 0;
+}
+
+/* === Admin Sidebar (Dark HQ Theme) === */
+.admin-sidebar {
+    width: var(--sw-sidebar-width);
+    height: 100vh;
+    background: linear-gradient(180deg, var(--sw-admin-start) 0%, var(--sw-admin-end) 100%) !important;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.25);
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.admin-sidebar::-webkit-scrollbar { display: none; }
+
+.admin-sidebar .menu-item {
+    color: rgba(255, 255, 255, 0.65) !important;
+    padding: 11px 18px;
+    border-radius: var(--sw-radius);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    transition: var(--sw-transition);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+.admin-sidebar .menu-item i {
+    width: 22px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.admin-sidebar .menu-item.active,
+.admin-sidebar .menu-item:hover {
+    background-color: var(--sw-admin-accent) !important;
+    color: #FFFFFF !important;
+    font-weight: 600;
+    transform: translateX(4px);
+}
+
+.admin-sidebar .menu-item.active i,
+.admin-sidebar .menu-item:hover i {
+    color: #FFFFFF !important;
+}
+
+.admin-sidebar .menu-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60%;
+    background: rgba(255,255,255,0.8);
+    border-radius: 0 4px 4px 0;
+}
+
+.admin-sidebar .menu-item.logout-item:hover {
+    background-color: rgba(239, 68, 68, 0.15) !important;
+    color: #FCA5A5 !important;
+    transform: translateX(4px);
+}
+
+.border-admin-light {
+    border-color: rgba(255, 255, 255, 0.10) !important;
+}
+
+.tracking-wide { letter-spacing: 0.05em; }
+
+/* === Admin Main Content === */
+.admin-main-content {
+    margin-left: var(--sw-sidebar-width);
+    padding: 40px;
+    min-height: 100vh;
+}
+
+/* === Admin Stat Cards === */
+.admin-card {
+    border: none;
+    border-radius: var(--sw-radius-lg);
+    padding: 24px;
+    background-color: var(--sw-surface);
+    height: 100%;
+    transition: var(--sw-transition);
+}
+
+.admin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sw-shadow-md);
+}
+
+/* Premium dark card (revenue) */
+.card-premium-dark {
+    background: linear-gradient(135deg, var(--sw-admin-bg) 0%, #111827 100%);
+    color: #FFFFFF;
+}
+
+/* Border accent kiri */
+.border-start-indigo  { border-left: 5px solid var(--sw-admin-accent) !important; }
+.border-start-purple  { border-left: 5px solid var(--sw-purple) !important; }
+.border-start-warning { border-left: 5px solid var(--sw-warning) !important; }
+
+/* === Admin Icon Boxes === */
+.admin-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--sw-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.bg-indigo-light  { background-color: #EEF2FF; }
+.bg-purple-light  { background-color: var(--sw-purple-pale); }
+.bg-warning-light { background-color: var(--sw-warning-pale); }
+.bg-blur          { background-color: rgba(255, 255, 255, 0.12); }
+
+/* === Colour Tokens === */
+.purple-text     { color: var(--sw-purple) !important; }
+.text-indigo     { color: var(--sw-admin-accent) !important; }
+.text-gradient-gold { color: #FBBF24; }
+
+/* === Admin Table === */
+.table-dark-header th {
+    background-color: var(--sw-admin-bg);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    padding: 14px 12px;
+}
+
+/* === Warga Emas Typography === */
+.text-warga-emas {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--sw-text);
+}
+
+.subtext-warga-emas {
+    font-size: 1.05rem;
+    color: var(--sw-text-muted);
+}
+
+/* === Buttons === */
+.btn-purple {
+    background-color: var(--sw-purple);
+    color: #FFFFFF;
+    border: none;
+    border-radius: var(--sw-radius-pill);
+    font-weight: 600;
+    padding: 8px 22px;
+    transition: var(--sw-transition);
+}
+
+.btn-purple:hover {
+    background-color: var(--sw-purple-dark);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: var(--sw-shadow-purple);
+}
+
+/* === Admin Bottom Nav (Mobile) === */
+.admin-bottom-nav {
+    z-index: 1050;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
+}
+
+.admin-bottom-nav .nav-link { transition: var(--sw-transition-fast); }
+
+.admin-bottom-nav .nav-link.active {
+    color: var(--sw-admin-accent) !important;
+    font-weight: 700;
+}
+
+/* === Responsive === */
+@media (max-width: 991.98px) {
+    .admin-sidebar { display: none !important; }
+    .admin-main-content {
+        margin-left: 0;
+        padding: 24px 16px 100px;
+    }
+}

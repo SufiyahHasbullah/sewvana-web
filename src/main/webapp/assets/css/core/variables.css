@@ -1,0 +1,137 @@
+/* ============================================================================
+   SEWVANA VARIABLES — Elegant Feminine Design System (Phase 2)
+   Design Vibe: Modern, Minimalist, Elegant, Feminine (Tailoring Platform)
+   Font: Poppins / Inter | Primary: #B57EDC | BG: #F8F5FA | Text: #4B4453
+   ============================================================================ */
+
+:root {
+
+  /* ===================================================================
+     BRAND COLORS
+  =================================================================== */
+  --sw-primary:        #B57EDC;   /* Soft Lavender Purple — utama */
+  --sw-primary-dark:   #9B5FC0;   /* Hover / active */
+  --sw-primary-darker: #7D3FA8;   /* Pressed */
+  --sw-primary-light:  #CFA3E8;   /* Light tint */
+  --sw-primary-pale:   #F0E6FA;   /* Background pale chip */
+
+  --sw-accent:         #D8A7B1;   /* Blush Rose — aksen */
+  --sw-accent-dark:    #C08898;
+  --sw-accent-pale:    #FAEEF1;   /* Rose background */
+
+  /* ===================================================================
+     SIDEBAR GRADIENTS
+  =================================================================== */
+  /* Customer & Tailor — Matte Plum */
+  --sw-sidebar-start:  #3D2C5E;
+  --sw-sidebar-end:    #6B4E9B;
+  --sw-sidebar-hover:  rgba(255, 255, 255, 0.10);
+  --sw-sidebar-active: rgba(255, 255, 255, 0.18);
+  --sw-sidebar-text:   rgba(255, 255, 255, 0.90);
+  --sw-sidebar-muted:  rgba(255, 255, 255, 0.55);
+  --sw-sidebar-icon:   rgba(255, 255, 255, 0.70);
+
+  /* Admin — Dark HQ (berbeza / distinguished) */
+  --sw-admin-start:    #1A1033;
+  --sw-admin-end:      #2D1F52;
+  --sw-admin-accent:   #7C6FCD;
+  --sw-admin-badge:    #5B50B8;
+
+  /* ===================================================================
+     NEUTRAL / SURFACE
+  =================================================================== */
+  --sw-bg:             #F8F5FA;   /* Warm white lavender — body bg */
+  --sw-surface:        #FFFFFF;
+  --sw-surface-2:      #FBF8FD;   /* Card inner bg */
+  --sw-border:         #E8DFF0;   /* Soft lavender border */
+  --sw-border-focus:   #B57EDC;
+  --sw-divider:        #F0EBF5;
+
+  /* ===================================================================
+     TYPOGRAPHY
+  =================================================================== */
+  --sw-text:           #241A2F;   /* Sangat Gelap Plum (High Contrast) */
+  --sw-text-sub:       #483D56;   /* Gelap Sederhana */
+  --sw-text-muted:     #6C5E7A;   /* Kelabu Gelap (Muted tapi kontras) */
+  --sw-text-white:     #FFFFFF;
+
+  /* Bootstrap 5 Core Overrides for High Contrast Dark Text */
+  --bs-body-color:           #241A2F !important;
+  --bs-body-color-rgb:       36, 26, 47 !important;
+  --bs-secondary-color:       #483D56 !important;
+  --bs-secondary-color-rgb:   72, 61, 86 !important;
+  --bs-heading-color:         #191024 !important;
+
+  /* ===================================================================
+     SEMANTIC
+  =================================================================== */
+  --sw-success:        #4CAF7D;
+  --sw-success-pale:   #ECF9F2;
+  --sw-success-border: #A8DFC3;
+
+  --sw-warning:        #E8A838;
+  --sw-warning-pale:   #FEF6E7;
+  --sw-warning-border: #F3D28A;
+
+  --sw-danger:         #E05C75;
+  --sw-danger-pale:    #FDEDF1;
+  --sw-danger-border:  #F0B0BC;
+
+  --sw-info:           #5B9BD5;
+  --sw-info-pale:      #EDF3FB;
+  --sw-info-border:    #A8C9EE;
+
+  /* ===================================================================
+     LAYOUT
+  =================================================================== */
+  --sw-sidebar-width:       265px;
+  --sw-sidebar-collapsed:   72px;
+  --sw-topbar-height:       64px;
+  --sw-bottom-nav-height:   64px;
+
+  /* ===================================================================
+     BORDER RADIUS
+  =================================================================== */
+  --sw-radius-xs:   4px;
+  --sw-radius-sm:   8px;
+  --sw-radius:      12px;    /* Butang standard */
+  --sw-radius-card: 18px;   /* Kad */
+  --sw-radius-xl:   24px;
+  --sw-radius-pill: 50px;
+
+  /* ===================================================================
+     SHADOWS
+  =================================================================== */
+  --sw-shadow-xs:      0 1px 4px rgba(75, 68, 83, 0.06);
+  --sw-shadow-sm:      0 2px 8px rgba(75, 68, 83, 0.08);
+  --sw-shadow:         0 4px 16px rgba(75, 68, 83, 0.10);
+  --sw-shadow-md:      0 8px 24px rgba(75, 68, 83, 0.12);
+  --sw-shadow-lg:      0 16px 40px rgba(75, 68, 83, 0.14);
+  --sw-shadow-primary: 0 8px 24px rgba(181, 126, 220, 0.30);
+  --sw-shadow-card:    0 4px 20px rgba(61, 44, 94, 0.08);
+
+  /* ===================================================================
+     TRANSITIONS
+  =================================================================== */
+  --sw-transition:      all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --sw-transition-fast: all 0.15s ease;
+  --sw-transition-slow: all 0.4s ease;
+
+  /* ===================================================================
+     SPACING (standard multiples of 4)
+  =================================================================== */
+  --sw-space-xs:  4px;
+  --sw-space-sm:  8px;
+  --sw-space-md:  16px;
+  --sw-space-lg:  24px;
+  --sw-space-xl:  32px;
+  --sw-space-2xl: 48px;
+
+  /* ===================================================================
+     Z-INDEX
+  =================================================================== */
+  --sw-z-sidebar: 1040;
+  --sw-z-topbar:  1030;
+  --sw-z-modal:   1050;
+  --sw-z-tooltip: 1070;
+}

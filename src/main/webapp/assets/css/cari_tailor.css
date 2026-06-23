@@ -1,0 +1,90 @@
+/* ==========================================================================
+   CARI TAILOR — Sewvana
+   Require: sewvana-design-system.css (diload terlebih dahulu)
+   ========================================================================== */
+
+/* === Filter Card === */
+.filter-card {
+    background-color: var(--sw-surface);
+    border: none;
+    border-radius: var(--sw-radius);
+    padding: 20px;
+    box-shadow: var(--sw-shadow-sm);
+}
+
+.form-control,
+.form-select {
+    border: 1.5px solid var(--sw-border);
+    border-radius: var(--sw-radius);
+    padding: 10px 14px;
+    font-family: 'Poppins', sans-serif;
+    transition: var(--sw-transition-fast);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--sw-purple);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+}
+
+/* === Tailor Cards === */
+.tailor-premium-card {
+    border-radius: var(--sw-radius-lg) !important;
+    background-color: var(--sw-surface);
+    border: 2px solid var(--sw-border-light) !important;
+    transition: var(--sw-transition);
+}
+
+.tailor-premium-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sw-shadow-md) !important;
+    border-color: var(--sw-purple) !important;
+}
+
+.tailor-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--sw-purple-pale);
+}
+
+/* === Rating Badge === */
+.rating-badge {
+    background-color: #FAF5FF;
+    border: 1px solid var(--sw-purple-pale);
+    padding: 5px 12px;
+    border-radius: var(--sw-radius-sm);
+    display: inline-block;
+}
+
+/* === Spec Badge (Kepakaran) === */
+.spec-badge {
+    background-color: var(--sw-purple-pale);
+    color: var(--sw-purple-dark);
+    border-radius: var(--sw-radius-pill);
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    display: inline-block;
+}
+
+/* === Buttons === */
+.btn-purple {
+    background-color: var(--sw-purple);
+    color: #FFFFFF;
+    border: none;
+    border-radius: var(--sw-radius);
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: var(--sw-transition);
+}
+
+.btn-purple:hover {
+    background-color: var(--sw-purple-dark);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: var(--sw-shadow-purple);
+}

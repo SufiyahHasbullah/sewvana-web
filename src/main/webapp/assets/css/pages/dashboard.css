@@ -1,0 +1,195 @@
+/* ============================================================================
+   DASHBOARD PAGES — Customer, Tailor, Admin (Sewvana Phase 2)
+   ============================================================================ */
+
+/* === Quick Actions Grid === */
+.sw-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.sw-quick-action-item {
+  background: var(--sw-surface);
+  border: 1px solid var(--sw-border);
+  border-radius: var(--sw-radius-card);
+  padding: 1.25rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--sw-text);
+  transition: var(--sw-transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  box-shadow: var(--sw-shadow-xs);
+}
+.sw-quick-action-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--sw-primary-light);
+  box-shadow: var(--sw-shadow-primary);
+  color: var(--sw-text);
+}
+.sw-quick-action-item i {
+  font-size: 1.625rem;
+  color: var(--sw-primary);
+}
+.sw-quick-action-item span {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* === Activity Feed === */
+.sw-activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--sw-divider);
+}
+.sw-activity-item:last-child { border-bottom: none; }
+.sw-activity-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.sw-activity-content { flex: 1; min-width: 0; }
+.sw-activity-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--sw-text);
+  margin-bottom: 0.125rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sw-activity-meta {
+  font-size: 0.775rem;
+  color: var(--sw-text-muted);
+}
+
+/* === Booking Cards === */
+.sw-booking-card {
+  background: var(--sw-surface);
+  border: 1px solid var(--sw-border);
+  border-radius: var(--sw-radius-card);
+  padding: 1.25rem 1.375rem;
+  transition: var(--sw-transition);
+  box-shadow: var(--sw-shadow-xs);
+}
+.sw-booking-card:hover {
+  border-color: var(--sw-primary-light);
+  box-shadow: var(--sw-shadow-card);
+  transform: translateY(-2px);
+}
+.sw-booking-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.875rem;
+}
+
+/* === Calendar / Slot View (Tailor) === */
+.slot-day-pill {
+  background: var(--sw-surface);
+  border: 2px solid var(--sw-border);
+  border-radius: var(--sw-radius);
+  padding: 0.625rem 0.875rem;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--sw-transition-fast);
+  min-width: 70px;
+}
+.slot-day-pill:hover { border-color: var(--sw-primary); background: var(--sw-primary-pale); }
+.slot-day-pill.active { border-color: var(--sw-primary); background: var(--sw-primary); color: white; }
+.slot-day-pill.closed { background: var(--sw-divider); border-color: transparent; opacity: 0.6; cursor: default; }
+
+/* === Tailor Card (cari penjahit) === */
+.tailor-card {
+  background: var(--sw-surface);
+  border: 1px solid var(--sw-border);
+  border-radius: var(--sw-radius-card);
+  overflow: hidden;
+  transition: var(--sw-transition);
+  box-shadow: var(--sw-shadow-xs);
+}
+.tailor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sw-shadow-md);
+  border-color: var(--sw-primary-light);
+}
+.tailor-card-header {
+  height: 90px;
+  background: linear-gradient(135deg, var(--sw-sidebar-start), var(--sw-sidebar-end));
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tailor-avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--sw-accent-pale);
+  color: var(--sw-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  border: 3px solid rgba(255,255,255,0.85);
+  position: absolute;
+  bottom: -28px;
+}
+.tailor-card-body { padding: 2rem 1.25rem 1.25rem; text-align: center; }
+
+/* === Admin Table Container === */
+.sw-admin-table-wrapper {
+  background: var(--sw-surface);
+  border-radius: var(--sw-radius-card);
+  border: 1px solid var(--sw-border);
+  box-shadow: var(--sw-shadow-xs);
+  overflow: hidden;
+}
+.sw-admin-table-header {
+  padding: 1.125rem 1.375rem;
+  border-bottom: 1px solid var(--sw-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Stat Cards Row */
+.sw-stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.125rem;
+  margin-bottom: 1.75rem;
+}
+
+/* Empty State */
+.sw-empty-state {
+  text-align: center;
+  padding: 3.5rem 2rem;
+}
+.sw-empty-state-icon {
+  font-size: 3rem;
+  color: var(--sw-text-muted);
+  margin-bottom: 1rem;
+}
+.sw-empty-state-title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--sw-text-sub);
+  margin-bottom: 0.375rem;
+}
+.sw-empty-state-text {
+  font-size: 0.875rem;
+  color: var(--sw-text-muted);
+}

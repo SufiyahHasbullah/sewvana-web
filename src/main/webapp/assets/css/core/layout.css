@@ -1,0 +1,376 @@
+/* ============================================================================
+   SEWVANA LAYOUT — Sidebar, Main Content, Topbar, Bottom Nav, Responsive
+   Requires: variables.css, base.css
+   ============================================================================ */
+
+/* ============================================================
+   1. ROOT LAYOUT STRUCTURE
+   ============================================================ */
+
+/* Wrapper for sidebar + content */
+.sw-app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sw-main-content,
+.sewvana-main-content {
+  flex: 1;
+  min-width: 0;
+  margin-left: var(--sw-sidebar-width);
+  min-height: 100vh;
+  padding: 2rem 2.25rem;
+  background: var(--sw-bg);
+  transition: margin-left 0.3s ease;
+}
+
+/* ============================================================
+   2. SIDEBAR — Customer & Tailor (Matte Plum)
+   ============================================================ */
+
+.sewvana-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sw-sidebar-width);
+  height: 100vh;
+  background: linear-gradient(180deg, var(--sw-sidebar-start) 0%, var(--sw-sidebar-end) 100%);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  z-index: var(--sw-z-sidebar);
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: width 0.3s ease;
+  box-shadow: 4px 0 20px rgba(61, 44, 94, 0.20);
+}
+
+/* Sidebar scrollbar */
+.sewvana-sidebar::-webkit-scrollbar { width: 4px; }
+.sewvana-sidebar::-webkit-scrollbar-track { background: transparent; }
+.sewvana-sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+
+/* --- Sidebar Header / Brand --- */
+.sidebar-header {
+  padding: 1.625rem 1.5rem 1.25rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  flex-shrink: 0;
+}
+
+.logo-title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo-title i { color: var(--sw-accent); font-size: 1.25rem; }
+
+.logo-subtitle {
+  font-size: 0.75rem;
+  color: var(--sw-sidebar-muted);
+  margin: 0.2rem 0 0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* --- User Profile Area --- */
+.sidebar-profile {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.sidebar-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--sw-accent-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sw-primary);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  font-weight: 600;
+  border: 2px solid rgba(255,255,255,0.20);
+}
+.sidebar-user-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--sw-sidebar-text);
+  line-height: 1.3;
+}
+.sidebar-user-role {
+  font-size: 0.72rem;
+  color: var(--sw-sidebar-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.sidebar-user-role::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--sw-accent);
+  display: inline-block;
+}
+
+/* --- Navigation Menu --- */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem 0.75rem;
+  gap: 0.125rem;
+}
+
+.sidebar-section-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sw-sidebar-muted);
+  padding: 0.875rem 0.875rem 0.375rem;
+  margin-top: 0.5rem;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6875rem 1rem;
+  color: var(--sw-sidebar-text);
+  text-decoration: none;
+  border-radius: var(--sw-radius);
+  transition: var(--sw-transition-fast);
+  font-size: 0.9rem;
+  font-weight: 500;
+  position: relative;
+  white-space: nowrap;
+}
+.menu-item i {
+  font-size: 1.1rem;
+  color: var(--sw-sidebar-icon);
+  width: 22px;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+.menu-item:hover {
+  background: var(--sw-sidebar-hover);
+  color: #fff;
+  transform: translateX(3px);
+}
+.menu-item:hover i { color: var(--sw-accent); }
+
+.menu-item.active {
+  background: var(--sw-sidebar-active);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 var(--sw-accent);
+}
+.menu-item.active i { color: var(--sw-accent); }
+
+/* Logout item */
+.menu-item.logout-item {
+  margin-top: auto;
+  color: rgba(255,255,255,0.65);
+}
+.menu-item.logout-item:hover {
+  background: rgba(224, 92, 117, 0.18);
+  color: #F4A0AE;
+  transform: none;
+}
+
+/* Sidebar footer */
+.sidebar-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: auto;
+}
+
+/* ============================================================
+   3. ADMIN SIDEBAR (Dark HQ — Distinguished)
+   ============================================================ */
+
+.admin-sidebar {
+  background: linear-gradient(180deg, var(--sw-admin-start) 0%, var(--sw-admin-end) 100%);
+  box-shadow: 4px 0 24px rgba(26, 16, 51, 0.30);
+}
+
+/* Admin sidebar overrides same structure but darker palette */
+.admin-sidebar .logo-title i { color: var(--sw-admin-accent); }
+.admin-sidebar .menu-item.active { box-shadow: inset 3px 0 0 var(--sw-admin-accent); }
+.admin-sidebar .menu-item:hover i { color: var(--sw-admin-accent); }
+.admin-sidebar .sidebar-user-role::before { background: var(--sw-admin-accent); }
+
+/* ============================================================
+   4. TOPBAR / PAGE HEADER
+   ============================================================ */
+
+.sw-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+  gap: 1rem;
+}
+
+/* Content header (existing .content-header compat) */
+.content-header {
+  margin-bottom: 1.75rem;
+}
+.content-header .main-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--sw-text);
+}
+.content-header .sub-title {
+  color: var(--sw-text-muted);
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   5. BOTTOM NAVIGATION (Mobile)
+   ============================================================ */
+
+.sw-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--sw-bottom-nav-height);
+  background: var(--sw-surface);
+  border-top: 1px solid var(--sw-border);
+  box-shadow: 0 -4px 16px rgba(75, 68, 83, 0.08);
+  z-index: var(--sw-z-sidebar);
+  padding: 0 0.5rem;
+  align-items: stretch;
+  justify-content: space-around;
+}
+
+.sw-bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--sw-text-muted);
+  text-decoration: none;
+  transition: var(--sw-transition-fast);
+  border-radius: var(--sw-radius-sm);
+  min-width: 60px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+.sw-bottom-nav-item i { font-size: 1.3rem; }
+.sw-bottom-nav-item.active {
+  color: var(--sw-primary);
+}
+.sw-bottom-nav-item:hover { color: var(--sw-primary); background: var(--sw-primary-pale); }
+
+/* ============================================================
+   6. RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+@media (max-width: 991.98px) {
+  .sewvana-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  .sewvana-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sw-main-content,
+  .sewvana-main-content {
+    margin-left: 0 !important;
+    width: 100%;
+    padding: 1.25rem 1rem;
+    padding-bottom: calc(var(--sw-bottom-nav-height) + 1.25rem);
+  }
+
+  .sw-bottom-nav { display: flex; }
+}
+
+@media (max-width: 767.98px) {
+  .sw-main-content,
+  .sewvana-main-content {
+    padding: 1rem 0.875rem;
+    padding-bottom: calc(var(--sw-bottom-nav-height) + 1rem);
+  }
+
+  .content-header .main-title { font-size: 1.25rem; }
+
+  .sw-stat-card { padding: 1rem; }
+  .sw-stat-value { font-size: 1.375rem; }
+}
+
+/* ============================================================
+   7. MOBILE SIDEBAR OVERLAY
+   ============================================================ */
+
+.sw-sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(61, 44, 94, 0.45);
+  z-index: calc(var(--sw-z-sidebar) - 1);
+  backdrop-filter: blur(2px);
+}
+.sw-sidebar-overlay.active { display: block; }
+
+/* ============================================================
+   8. HAMBURGER MENU BUTTON (Mobile)
+   ============================================================ */
+
+.sw-menu-toggle {
+  display: none;
+  background: var(--sw-primary-pale);
+  border: none;
+  border-radius: var(--sw-radius-sm);
+  color: var(--sw-primary);
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: var(--sw-transition-fast);
+}
+.sw-menu-toggle:hover { background: var(--sw-primary); color: #fff; }
+
+@media (max-width: 991.98px) {
+  .sw-menu-toggle { display: flex; align-items: center; }
+}
+
+/* ============================================================
+   9. STICKY SIDEBAR COLUMN (non-sidebar pages)
+   ============================================================ */
+
+.sticky-top-sw {
+  position: sticky;
+  top: 1.5rem;
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+}
+
+/* ============================================================
+   10. CONTENT GRID HELPERS
+   ============================================================ */
+
+.sw-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.sw-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.sw-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+
+@media (max-width: 991.98px) {
+  .sw-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .sw-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 575.98px) {
+  .sw-grid-2, .sw-grid-3, .sw-grid-4 { grid-template-columns: 1fr; }
+}

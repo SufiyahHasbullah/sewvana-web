@@ -1,0 +1,461 @@
+/* ============================================================================
+   SEWVANA COMPONENTS — Buttons, Cards, Badges, Inputs, Tables, Alerts
+   Requires: variables.css, base.css
+   ============================================================================ */
+
+/* ============================================================
+   1. BUTTONS
+   ============================================================ */
+
+/* --- Primary Button --- */
+.btn-sw-primary,
+.btn-purple {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.375rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #fff;
+  background: linear-gradient(135deg, var(--sw-primary-light) 0%, var(--sw-primary) 60%, var(--sw-primary-dark) 100%);
+  border: none;
+  border-radius: var(--sw-radius);
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--sw-transition);
+  box-shadow: var(--sw-shadow-primary);
+  white-space: nowrap;
+  user-select: none;
+}
+.btn-sw-primary:hover,
+.btn-purple:hover {
+  background: linear-gradient(135deg, var(--sw-primary) 0%, var(--sw-primary-dark) 100%);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(181, 126, 220, 0.40);
+}
+.btn-sw-primary:active,
+.btn-purple:active {
+  transform: translateY(0);
+  box-shadow: var(--sw-shadow-sm);
+}
+
+/* --- Outline Button --- */
+.btn-sw-outline,
+.btn-outline-purple {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.375rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--sw-primary);
+  background: transparent;
+  border: 2px solid var(--sw-primary);
+  border-radius: var(--sw-radius);
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--sw-transition);
+}
+.btn-sw-outline:hover,
+.btn-outline-purple:hover {
+  background: var(--sw-primary);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--sw-shadow-primary);
+}
+
+/* --- Ghost Button --- */
+.btn-sw-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--sw-text-sub);
+  background: transparent;
+  border: none;
+  border-radius: var(--sw-radius-sm);
+  cursor: pointer;
+  transition: var(--sw-transition-fast);
+}
+.btn-sw-ghost:hover {
+  background: var(--sw-primary-pale);
+  color: var(--sw-primary);
+}
+
+/* --- Icon Button --- */
+.btn-sw-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: var(--sw-radius);
+  background: var(--sw-primary-pale);
+  color: var(--sw-primary);
+  cursor: pointer;
+  transition: var(--sw-transition-fast);
+  font-size: 1rem;
+}
+.btn-sw-icon:hover {
+  background: var(--sw-primary);
+  color: #fff;
+  box-shadow: var(--sw-shadow-primary);
+}
+
+/* --- Grand CTA (big button) --- */
+.btn-sw-grand,
+.btn-purple-grand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--sw-primary-light), var(--sw-primary) 50%, var(--sw-primary-dark));
+  border: none;
+  border-radius: var(--sw-radius-pill);
+  cursor: pointer;
+  transition: var(--sw-transition);
+  box-shadow: var(--sw-shadow-primary);
+  letter-spacing: 0.01em;
+}
+.btn-sw-grand:hover,
+.btn-purple-grand:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(181, 126, 220, 0.45);
+  color: #fff;
+}
+
+/* Bootstrap override — .btn-purple compatibility */
+.btn.btn-purple { color: #fff; }
+.btn.btn-purple:hover { color: #fff; }
+.btn.btn-outline-purple { color: var(--sw-primary); }
+.btn.btn-outline-purple:hover { color: #fff; }
+
+/* ============================================================
+   2. CARDS
+   ============================================================ */
+
+.sw-card,
+.card-premium {
+  background: var(--sw-surface);
+  border-radius: var(--sw-radius-card);
+  border: 1px solid var(--sw-border);
+  box-shadow: var(--sw-shadow-card);
+  transition: var(--sw-transition);
+  overflow: hidden;
+}
+.sw-card:hover,
+.card-premium:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sw-shadow-md);
+  border-color: var(--sw-primary-light);
+}
+
+/* Stat / metric card */
+.sw-stat-card {
+  background: var(--sw-surface);
+  border-radius: var(--sw-radius-card);
+  border: 1px solid var(--sw-border);
+  box-shadow: var(--sw-shadow-card);
+  padding: 1.375rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: var(--sw-transition);
+}
+.sw-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sw-shadow-md);
+}
+.sw-stat-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--sw-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.375rem;
+  flex-shrink: 0;
+}
+.sw-stat-icon.primary  { background: var(--sw-primary-pale); color: var(--sw-primary); }
+.sw-stat-icon.accent   { background: var(--sw-accent-pale);  color: var(--sw-accent-dark); }
+.sw-stat-icon.success  { background: var(--sw-success-pale); color: var(--sw-success); }
+.sw-stat-icon.warning  { background: var(--sw-warning-pale); color: var(--sw-warning); }
+.sw-stat-icon.danger   { background: var(--sw-danger-pale);  color: var(--sw-danger); }
+.sw-stat-icon.info     { background: var(--sw-info-pale);    color: var(--sw-info); }
+
+.sw-stat-value {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: var(--sw-text);
+  line-height: 1.2;
+}
+.sw-stat-label {
+  font-size: 0.8125rem;
+  color: var(--sw-text-muted);
+  font-weight: 500;
+  margin-top: 1px;
+}
+
+/* Premium Option Card (booking selection) */
+.premium-option-card {
+  background: var(--sw-surface);
+  border: 2px solid var(--sw-border);
+  border-radius: var(--sw-radius);
+  cursor: pointer;
+  transition: var(--sw-transition);
+  padding: 1.125rem 1.25rem;
+  display: block;
+}
+.premium-option-card:hover {
+  border-color: var(--sw-primary-light);
+  background: var(--sw-primary-pale);
+  transform: translateY(-1px);
+  box-shadow: var(--sw-shadow-sm);
+}
+.btn-check:checked + .premium-option-card {
+  border-color: var(--sw-primary);
+  background: var(--sw-primary-pale);
+  box-shadow: 0 0 0 3px rgba(181, 126, 220, 0.15);
+}
+
+/* Icon box inside option card */
+.icon-box-option {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--sw-radius-sm);
+  background: var(--sw-primary-pale);
+  color: var(--sw-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.25rem;
+}
+
+/* ============================================================
+   3. BADGES
+   ============================================================ */
+
+.sw-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--sw-radius-pill);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+.sw-badge.primary { background: var(--sw-primary-pale); color: var(--sw-primary-dark); }
+.sw-badge.accent  { background: var(--sw-accent-pale);  color: var(--sw-accent-dark); }
+.sw-badge.success { background: var(--sw-success-pale); color: var(--sw-success); border: 1px solid var(--sw-success-border); }
+.sw-badge.warning { background: var(--sw-warning-pale); color: var(--sw-warning); border: 1px solid var(--sw-warning-border); }
+.sw-badge.danger  { background: var(--sw-danger-pale);  color: var(--sw-danger);  border: 1px solid var(--sw-danger-border); }
+.sw-badge.info    { background: var(--sw-info-pale);    color: var(--sw-info);    border: 1px solid var(--sw-info-border); }
+
+/* Backward compat */
+.bg-purple        { background: var(--sw-primary) !important; }
+.bg-soft-purple   { background: var(--sw-primary-pale) !important; }
+.bg-lavender      { background: var(--sw-primary-pale) !important; }
+.bg-soft-lavender { background: var(--sw-bg) !important; }
+.bg-soft-pink     { background: var(--sw-accent-pale) !important; }
+
+/* ============================================================
+   4. FORM INPUTS
+   ============================================================ */
+
+.form-control,
+.form-select {
+  height: 46px;
+  padding: 0.625rem 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--sw-text);
+  background: var(--sw-surface);
+  border: 1.5px solid var(--sw-border);
+  border-radius: var(--sw-radius);
+  transition: var(--sw-transition-fast);
+  box-shadow: none;
+}
+.form-control:focus,
+.form-select:focus {
+  color: var(--sw-text);
+  background: var(--sw-surface);
+  border-color: var(--sw-border-focus);
+  box-shadow: 0 0 0 3px rgba(181, 126, 220, 0.15);
+  outline: none;
+}
+.form-control::placeholder { color: var(--sw-text-muted); }
+.form-control-lg,
+.form-select-lg {
+  height: 54px;
+  font-size: 1rem;
+  padding: 0.75rem 1.125rem;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--sw-text-sub);
+  margin-bottom: 0.375rem;
+}
+
+/* Custom radio check (Bootstrap override) */
+.form-check-input:checked {
+  background-color: var(--sw-primary);
+  border-color: var(--sw-primary);
+}
+.form-check-input:focus {
+  box-shadow: 0 0 0 3px rgba(181, 126, 220, 0.20);
+  border-color: var(--sw-primary);
+}
+
+/* ============================================================
+   5. TABLES
+   ============================================================ */
+
+.sw-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.sw-table thead tr {
+  background: linear-gradient(135deg, var(--sw-sidebar-start), var(--sw-sidebar-end));
+}
+.sw-table thead th {
+  padding: 0.875rem 1rem;
+  color: rgba(255,255,255, 0.92);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: none;
+  white-space: nowrap;
+}
+.sw-table tbody tr {
+  border-bottom: 1px solid var(--sw-divider);
+  transition: var(--sw-transition-fast);
+}
+.sw-table tbody tr:hover { background: var(--sw-primary-pale); }
+.sw-table tbody td {
+  padding: 0.875rem 1rem;
+  color: var(--sw-text);
+  vertical-align: middle;
+}
+
+/* Bootstrap table override */
+.table thead { background: linear-gradient(135deg, var(--sw-sidebar-start), var(--sw-sidebar-end)); }
+.table thead th { color: rgba(255,255,255,0.90); border: none; font-size: 0.8125rem; letter-spacing: 0.03em; }
+.table > :not(caption) > * > * { border-bottom-color: var(--sw-divider); }
+.table-hover tbody tr:hover { background: var(--sw-primary-pale); }
+
+/* ============================================================
+   6. ALERTS
+   ============================================================ */
+
+.sw-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.875rem 1.125rem;
+  border-radius: var(--sw-radius);
+  border-left: 4px solid transparent;
+  font-size: 0.9rem;
+}
+.sw-alert.success { background: var(--sw-success-pale); border-color: var(--sw-success);  color: #2D6A4F; }
+.sw-alert.warning { background: var(--sw-warning-pale); border-color: var(--sw-warning);  color: #7D5A1E; }
+.sw-alert.danger  { background: var(--sw-danger-pale);  border-color: var(--sw-danger);   color: #8B2A42; }
+.sw-alert.info    { background: var(--sw-info-pale);    border-color: var(--sw-info);     color: #2D567A; }
+.sw-alert.primary { background: var(--sw-primary-pale); border-color: var(--sw-primary);  color: var(--sw-primary-dark); }
+
+/* ============================================================
+   7. MISC UTILITIES
+   ============================================================ */
+
+/* Content Header (page title area) */
+.sw-content-header {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--sw-divider);
+}
+.sw-content-header .page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--sw-text);
+  margin: 0;
+}
+.sw-content-header .page-subtitle {
+  font-size: 0.9rem;
+  color: var(--sw-text-muted);
+  margin: 0.25rem 0 0;
+}
+
+/* Section Title */
+.sw-section-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--sw-text);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sw-section-title i { color: var(--sw-primary); }
+
+/* Pilihan Komitmen (Booking) */
+.pilihan-komitmen {
+  border: 2px solid var(--sw-border);
+  border-radius: var(--sw-radius);
+  padding: 0.875rem;
+  cursor: pointer;
+  transition: var(--sw-transition-fast);
+  text-align: center;
+}
+.pilihan-komitmen:hover,
+.pilihan-komitmen.aktif {
+  border-color: var(--sw-primary);
+  background: var(--sw-primary-pale);
+  color: var(--sw-primary-dark);
+}
+
+/* Panduan box (info box with left border) */
+.panduan-box {
+  background: var(--sw-surface-2);
+  border-radius: var(--sw-radius-sm);
+  margin-bottom: 0.875rem;
+}
+
+/* Animations */
+@keyframes sw-slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes sw-pulse-soft {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.65; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.sw-animate-up { animation: sw-slide-up 0.4s cubic-bezier(0.4,0,0.2,1) both; }
+.sw-animate-up-2 { animation: sw-slide-up 0.4s 0.1s cubic-bezier(0.4,0,0.2,1) both; }
+.sw-animate-up-3 { animation: sw-slide-up 0.4s 0.2s cubic-bezier(0.4,0,0.2,1) both; }

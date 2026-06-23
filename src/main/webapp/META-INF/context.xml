@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource name="jdbc/SewvanaDB"
+              auth="Container"
+              type="javax.sql.DataSource"
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://localhost:3307/sewvana_db?allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=UTC"
+              username="sewvana_user"
+              password="root" />
+</Context>

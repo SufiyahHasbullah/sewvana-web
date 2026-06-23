@@ -1,0 +1,33 @@
+<%-- ============================================================
+     bottom-nav-tailor.jspf — Mobile Bottom Navigation (Tailor)
+     Usage: <%@ include file="/WEB-INF/jspf/bottom-nav-tailor.jspf" %>
+     ============================================================ --%>
+<% String _bnTailorUri = request.getRequestURI(); %>
+
+<nav class="sw-bottom-nav" id="swBottomNav">
+    <a href="${pageContext.request.contextPath}/penjahit/dashboard"
+       class="sw-bottom-nav-item <%= _bnTailorUri.contains("dashboard_tailor") || _bnTailorUri.contains("/penjahit/dashboard") ? "active" : "" %>">
+        <i class="bi bi-grid-fill"></i>
+        <span>Dashboard</span>
+    </a>
+    <a href="${pageContext.request.contextPath}/penjahit/slot"
+       class="sw-bottom-nav-item <%= _bnTailorUri.contains("urus_slot") || _bnTailorUri.contains("/penjahit/slot") ? "active" : "" %>">
+        <i class="bi bi-calendar-range-fill"></i>
+        <span>Slot</span>
+    </a>
+    <a href="${pageContext.request.contextPath}/penjahit/pesanan"
+       class="sw-bottom-nav-item <%= _bnTailorUri.contains("pesanan") || _bnTailorUri.contains("/penjahit/pesanan") ? "active" : "" %>">
+        <i class="bi bi-bag-fill"></i>
+        <span>Pesanan</span>
+    </a>
+    <a href="${pageContext.request.contextPath}/penjahit/servis"
+       class="sw-bottom-nav-item <%= _bnTailorUri.contains("servis") || _bnTailorUri.contains("service") || _bnTailorUri.contains("/penjahit/servis") ? "active" : "" %>">
+        <i class="bi bi-scissors"></i>
+        <span>Servis</span>
+    </a>
+    <a href="${pageContext.request.contextPath}/penjahit/profil-kedai"
+       class="sw-bottom-nav-item <%= _bnTailorUri.contains("profil") || _bnTailorUri.contains("/penjahit/profil-kedai") ? "active" : "" %>">
+        <i class="bi bi-shop"></i>
+        <span>Profil</span>
+    </a>
+</nav>

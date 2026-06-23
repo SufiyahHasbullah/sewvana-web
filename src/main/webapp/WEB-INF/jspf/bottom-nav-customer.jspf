@@ -1,0 +1,33 @@
+<%-- ============================================================
+     bottom-nav-customer.jspf — Mobile Bottom Navigation (Customer)
+     Usage: <%@ include file="/WEB-INF/jspf/bottom-nav-customer.jspf" %>
+     ============================================================ --%>
+<% String _bnUri = request.getRequestURI(); %>
+
+<nav class="sw-bottom-nav" id="swBottomNav">
+    <a href="${pageContext.request.contextPath}/dashboard-pelanggan"
+       class="sw-bottom-nav-item <%= _bnUri.contains("dashboard_cust") || _bnUri.contains("dashboard-pelanggan") ? "active" : "" %>">
+        <i class="bi bi-grid-fill"></i>
+        <span>Home</span>
+    </a>
+    <a href="${pageContext.request.contextPath}/pelanggan/cari-penjahit"
+       class="sw-bottom-nav-item <%= _bnUri.contains("cari_tailor") || _bnUri.contains("cari-penjahit") || _bnUri.contains("/pelanggan/cari") ? "active" : "" %>">
+        <i class="bi bi-search-heart"></i>
+        <span>Cari</span>
+    </a>
+    <a href="${pageContext.request.contextPath}/pelanggan/tempahan"
+       class="sw-bottom-nav-item <%= _bnUri.contains("tempahan") ? "active" : "" %>">
+        <i class="bi bi-bag-check-fill"></i>
+        <span>Tempahan</span>
+    </a>
+    <a href="${pageContext.request.contextPath}/pelanggan/sejarah-bayaran"
+       class="sw-bottom-nav-item <%= (_bnUri.contains("sejarah") || _bnUri.contains("bayaran")) ? "active" : "" %>">
+        <i class="bi bi-credit-card-2-back-fill"></i>
+        <span>Bayaran</span>
+    </a>
+    <a href="${pageContext.request.contextPath}/pelanggan/profil" 
+       class="sw-bottom-nav-item <%= _bnUri.contains("profil") ? "active" : "" %>">
+        <i class="bi bi-person-fill"></i>
+        <span>Profil</span>
+    </a>
+</nav>

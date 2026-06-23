@@ -1,0 +1,131 @@
+/* ==========================================================================
+   RINGKASAN TEMPAHAN — Sewvana (Booking Summary / Checkout)
+   Require: sewvana-design-system.css (diload terlebih dahulu)
+   ========================================================================== */
+
+/* === Modal Pembayaran Title === */
+.modal-pembayaran-title {
+    color: var(--sw-purple);
+    font-weight: 700;
+}
+
+/* === Kotak Pilihan Saluran Pembayaran (Modal) === */
+.kotak-pilihan-saluran {
+    border: 2px solid var(--sw-border);
+    border-radius: var(--sw-radius);
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: var(--sw-transition);
+    background-color: var(--sw-surface);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.kotak-pilihan-saluran:hover {
+    border-color: var(--sw-purple-light);
+    background-color: var(--sw-purple-pale);
+    transform: translateY(-1px);
+    box-shadow: var(--sw-shadow-sm);
+}
+
+/* === Kotak Jumlah Bayar (Secure Box) === */
+.box-jumlah-bayar-secure {
+    background-color: var(--sw-surface);
+    border: 1px solid var(--sw-border);
+    border-radius: var(--sw-radius-lg);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--sw-bg);
+    color: var(--sw-text);
+}
+
+/* === Colour Tokens === */
+.text-purple  { color: var(--sw-purple); }
+.purple-text  { color: var(--sw-purple); }
+
+/* === Primary Button === */
+.btn-purple {
+    background: linear-gradient(135deg, var(--sw-purple-light), var(--sw-purple));
+    color: #FFFFFF;
+    border: none;
+    border-radius: var(--sw-radius);
+    font-weight: 600;
+    transition: var(--sw-transition);
+    box-shadow: var(--sw-shadow-purple);
+}
+
+.btn-purple:hover {
+    background: linear-gradient(135deg, var(--sw-purple), var(--sw-purple-dark));
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.35);
+}
+
+.btn-purple:disabled {
+    background: var(--sw-purple-pale);
+    color: var(--sw-purple-light);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* === Komitmen / Commitment Cards (Airbnb-style) === */
+.pilihan-komitmen {
+    cursor: pointer;
+    transition: var(--sw-transition);
+    border: 2px solid var(--sw-border);
+    background-color: var(--sw-surface);
+    border-radius: var(--sw-radius);
+}
+
+.pilihan-komitmen:hover {
+    border-color: var(--sw-purple-light);
+    background-color: var(--sw-purple-pale);
+    transform: translateY(-2px);
+    box-shadow: var(--sw-shadow-sm);
+}
+
+.pilihan-komitmen.aktif {
+    border-color: var(--sw-purple);
+    background-color: var(--sw-purple-pale);
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.12);
+}
+
+.pilihan-komitmen.aktif h6 { color: var(--sw-purple) !important; }
+
+/* === Checkout Item Cards (Shopee-style) === */
+.kad-item-checkout {
+    padding: 1rem;
+    border: 1px solid var(--sw-border);
+    border-radius: var(--sw-radius);
+    margin-bottom: 1rem;
+    background-color: var(--sw-surface);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    transition: var(--sw-transition);
+}
+
+.kad-item-checkout:hover {
+    box-shadow: var(--sw-shadow-sm);
+    border-color: var(--sw-purple-pale);
+}
+
+/* === Quantity Controls === */
+.pengawal-kuantiti-checkout { width: 100px; }
+
+.pengawal-kuantiti-checkout .btn {
+    font-weight: 700;
+    color: var(--sw-text);
+    transition: var(--sw-transition-fast);
+}
+
+.pengawal-kuantiti-checkout .btn:hover {
+    background-color: var(--sw-purple-pale);
+    color: var(--sw-purple);
+}

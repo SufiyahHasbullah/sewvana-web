@@ -1,0 +1,97 @@
+<%-- ============================================================
+     sidebar-admin.jspf — Sidebar untuk Admin (Dark HQ Theme)
+     Gradient: #1A1033 → #2D1F52 (Distinguished dari user sidebar)
+     Usage: <%@ include file="/WEB-INF/jspf/sidebar-admin.jspf" %>
+     ============================================================ --%>
+<%@ page import="com.sewvana.model.Pengguna" %>
+<%
+    Pengguna _adminUser = (Pengguna) session.getAttribute("pengguna");
+    String _adminName = (_adminUser != null) ? _adminUser.getNama() : "Admin";
+    String _adminInitial = (_adminName != null && !_adminName.isEmpty()) ? String.valueOf(_adminName.charAt(0)).toUpperCase() : "A";
+    String _adminUri = request.getRequestURI();
+%>
+
+<div class="sewvana-sidebar admin-sidebar" id="swSidebar">
+
+    <div class="sidebar-header">
+        <h1 class="logo-title" style="font-size:1.2rem;">
+            <i class="bi bi-shield-lock-fill" style="color:#7C6FCD;"></i> Sewvana HQ
+        </h1>
+        <p class="logo-subtitle">Panel Pentadbiran Sistem</p>
+    </div>
+
+    <div class="sidebar-profile">
+        <div class="sidebar-avatar" style="background: rgba(124,111,205,0.2); color: #7C6FCD;">
+            <%= _adminInitial %>
+        </div>
+        <div>
+            <div class="sidebar-user-name"><%= _adminName %></div>
+            <div class="sidebar-user-role" style="--dot-color: #7C6FCD;">
+                <span style="display:flex;align-items:center;gap:4px;">
+                    <span style="width:6px;height:6px;border-radius:50%;background:#7C6FCD;display:inline-block;"></span>
+                    Pentadbir
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="sidebar-menu">
+        <span class="sidebar-section-title">Kawalan Sistem</span>
+
+        <a href="${pageContext.request.contextPath}/admin/dashboard"
+           class="menu-item <%= (_adminUri.contains("dashboard_admin") || _adminUri.contains("dashboard")) ? "active" : "" %>">
+            <i class="bi bi-speedometer2"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <span class="sidebar-section-title">Pengurusan</span>
+
+        <a href="${pageContext.request.contextPath}/admin/urus-pengguna" 
+           class="menu-item <%= (_adminUri.contains("urus-pengguna") || _adminUri.contains("pengguna")) ? "active" : "" %>">
+            <i class="bi bi-people-fill"></i>
+            <span>Pengguna</span>
+        </a>
+
+        <a href="${pageContext.request.contextPath}/admin/urus-penjahit" 
+           class="menu-item <%= (_adminUri.contains("urus-penjahit") || _adminUri.contains("penjahit")) ? "active" : "" %>">
+            <i class="bi bi-scissors"></i>
+            <span>Senarai Penjahit</span>
+        </a>
+
+        <a href="${pageContext.request.contextPath}/admin/urus-tempahan" 
+           class="menu-item <%= (_adminUri.contains("urus-tempahan") || _adminUri.contains("tempahan")) ? "active" : "" %>">
+            <i class="bi bi-calendar2-check-fill"></i>
+            <span>Semua Tempahan</span>
+        </a>
+
+        <span class="sidebar-section-title">Laporan</span>
+
+        <a href="${pageContext.request.contextPath}/admin/laporan-sistem" 
+           class="menu-item <%= (_adminUri.contains("laporan-sistem") || _adminUri.contains("analitik")) ? "active" : "" %>">
+            <i class="bi bi-bar-chart-fill"></i>
+            <span>Analitik</span>
+        </a>
+
+        <a href="${pageContext.request.contextPath}/admin/urus-pembayaran" 
+           class="menu-item <%= (_adminUri.contains("urus-pembayaran") || _adminUri.contains("pembayaran")) ? "active" : "" %>">
+            <i class="bi bi-credit-card-fill"></i>
+            <span>Transaksi</span>
+        </a>
+
+        <span class="sidebar-section-title">Sistem</span>
+
+        <a href="${pageContext.request.contextPath}/admin/tetapan-sistem" 
+           class="menu-item <%= (_adminUri.contains("tetapan-sistem") || _adminUri.contains("tetapan")) ? "active" : "" %>">
+            <i class="bi bi-gear-fill"></i>
+            <span>Tetapan</span>
+        </a>
+
+        <a href="${pageContext.request.contextPath}/logout"
+           class="menu-item logout-item" style="margin-top: auto;">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Log Keluar</span>
+        </a>
+    </nav>
+</div>
+
+<div class="sw-sidebar-overlay" id="swOverlay" onclick="closeSidebar()"></div>
