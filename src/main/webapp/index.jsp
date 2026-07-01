@@ -41,8 +41,8 @@
                     <li class="nav-item"><a class="nav-link" href="#cara-kerja">Cara Tempahan</a></li>
                     <li class="nav-item"><a class="nav-link" href="#testimoni">Hubungi Kami</a></li>
                     <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                        <a class="btn btn-login px-4 py-2 me-2" href="views/login.jsp">Log Masuk</a>
-                        <a class="btn btn-register px-4 py-2" href="views/register.jsp">Daftar Akaun</a>
+                        <a class="btn btn-login px-4 py-2 me-2" href="${pageContext.request.contextPath}/views/login.jsp">Log Masuk</a>
+                        <a class="btn btn-register px-4 py-2" href="${pageContext.request.contextPath}/views/register.jsp">Daftar Akaun</a>
                     </li>
                 </ul>
             </div>
@@ -62,7 +62,7 @@
                         Satu platform digital yang menghubungkan pelanggan dan penjahit dengan lebih cekap, teratur, dan profesional.
                     </p>
                     <div class="d-sm-flex justify-content-center justify-content-lg-start gap-3">
-                        <a href="views/register.jsp" class="btn btn-primary-premium btn-lg px-4 py-3 shadow mb-3 mb-sm-0">
+                        <a href="${pageContext.request.contextPath}/views/register.jsp" class="btn btn-primary-premium btn-lg px-4 py-3 shadow mb-3 mb-sm-0">
                             Mula Sekarang <i class="fa-solid fa-arrow-right ms-2 fs-6"></i>
                         </a>
                         <a href="#kelebihan" class="btn btn-outline-white btn-lg px-4 py-3">
@@ -233,7 +233,7 @@
         <div class="container py-4 position-relative z-2" data-aos="zoom-in">
             <h2 class="display-6 fw-bold mb-3">Mulakan Pengalaman Tempahan Jahitan Digital Hari Ini</h2>
             <p class="text-white-50 mb-4 max-w-600 mx-auto">Sertai ratusan pelanggan lain yang telah menikmati kemudahan tempahan baju tanpa stres.</p>
-            <a href="views/register.jsp" class="btn btn-light-premium btn-lg px-5 py-3 rounded-pill fw-bold">
+            <a href="${pageContext.request.contextPath}/views/register.jsp" class="btn btn-light-premium btn-lg px-5 py-3 rounded-pill fw-bold">
                 Daftar Sekarang Secara Percuma
             </a>
         </div>

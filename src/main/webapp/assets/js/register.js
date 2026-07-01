@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 errorMessages.push("Kata laluan dan pengesahan kata laluan tidak sepadan.");
             }
 
-            // 4. Validasi Pemilihan Peranan (Role)
-            if (roleSelect.value === "") {
+            // 4. Validasi Pemilihan Peranan (Role) - hanya untuk pendaftaran manual
+            if (roleSelect && roleSelect.value === "") {
                 errorMessages.push("Sila pilih peranan anda sebagai Pelanggan atau Penjahit.");
             }
 
@@ -67,64 +67,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // === INTEGRASI PENDAFTARAN MENGGUNAKAN GOOGLE (GOOGLE SIGN-IN) ===
-    // Fungsi callback global untuk mengendalikan respons token kredensial Google JWT
+    // Pendaftaran Google adalah automatik - tiada perlu isi borang atau pilih peranan
+    // Peranan ditetapkan automatik sebagai PELANGGAN oleh sistem
     window.handleGoogleCredentialResponse = function(response) {
-        const selectedRole = roleSelect.value;
-
         // Bersihkan amaran ralat lama
-        clientErrorAlert.classList.add('d-none');
-        if (serverErrorAlert) {
-            serverErrorAlert.classList.add('d-none');
-        }
-
-        // Pengguna WAJIB memilih peranan (Pelanggan/Penjahit) dahulu sebelum mendaftar guna Google
-        if (!selectedRole || selectedRole === "") {
-            clientErrorMsg.textContent = "Sila pilih jenis pengguna (Peranan) terlebih dahulu sebelum mendaftar menggunakan akaun Google.";
-            clientErrorAlert.classList.remove('d-none');
-
-            // Jalankan animasi gegaran (shake) pada kotak amaran
-            clientErrorAlert.style.animation = 'none';
-            clientErrorAlert.offsetHeight; /* Mencetuskan reflow */
-            clientErrorAlert.style.animation = null;
-
-            // Skrol ke atas
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-            return;
-        }
+        if (clientErrorAlert) clientErrorAlert.classList.add('d-none');
+        if (serverErrorAlert) serverErrorAlert.classList.add('d-none');
 
         // Cipta form maya secara dinamik untuk diposkan ke RegisterServlet
         const dynamicForm = document.createElement('form');
         dynamicForm.method = 'POST';
-        dynamicForm.action = registerForm.action; // Menghala ke RegisterServlet yang sama
+        dynamicForm.action = registerForm.action;
 
-        // Masukkan Token Google Credential (JWT)
+        // Token Google JWT
         const credentialInput = document.createElement('input');
         credentialInput.type = 'hidden';
-        credentialInput.name = 'googleCredential';
+        credentialInput.name = 'googleToken';
         credentialInput.value = response.credential;
-
-        // Masukkan Peranan yang dipilih oleh pengguna
-        const roleInput = document.createElement('input');
-        roleInput.type = 'hidden';
-        roleInput.name = 'role';
-        roleInput.value = selectedRole;
-
-        // Masukkan penanda bahawa pendaftaran ini menggunakan Google
-        const isGoogleInput = document.createElement('input');
-        isGoogleInput.type = 'hidden';
-        isGoogleInput.name = 'isGoogle';
-        isGoogleInput.value = 'true';
-
         dynamicForm.appendChild(credentialInput);
-        dynamicForm.appendChild(roleInput);
-        dynamicForm.appendChild(isGoogleInput);
+
+        // Penanda Google sign-in
+        const aksiInput = document.createElement('input');
+        aksiInput.type = 'hidden';
+        aksiInput.name = 'aksi';
+        aksiInput.value = 'google';
+        dynamicForm.appendChild(aksiInput);
 
         document.body.appendChild(dynamicForm);
-
-        // Hantar form ke servlet
         dynamicForm.submit();
     };
 });

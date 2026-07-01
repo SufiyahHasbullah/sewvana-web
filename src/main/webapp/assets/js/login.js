@@ -69,14 +69,14 @@ document.addEventListener('DOMContentLoaded', function() {
          // Masukkan Token Google Credential (JWT)
          const credentialInput = document.createElement('input');
          credentialInput.type = 'hidden';
-         credentialInput.name = 'googleCredential';
+         credentialInput.name = 'googleToken';
          credentialInput.value = response.credential;
 
          // Masukkan penanda log masuk menerusi Google
          const isGoogleInput = document.createElement('input');
          isGoogleInput.type = 'hidden';
-         isGoogleInput.name = 'isGoogle';
-         isGoogleInput.value = 'true';
+         isGoogleInput.name = 'aksi';
+         isGoogleInput.value = 'google';
 
          dynamicForm.appendChild(credentialInput);
          dynamicForm.appendChild(isGoogleInput);

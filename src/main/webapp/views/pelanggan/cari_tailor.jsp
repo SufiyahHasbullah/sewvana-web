@@ -21,6 +21,7 @@
     <%@ include file="/WEB-INF/jspf/sidebar-customer.jspf" %>
 
     <div class="sewvana-main-content">
+        <%@ include file="/WEB-INF/jspf/topbar.jspf" %>
 
         <div class="content-header mb-4">
             <h1 class="fw-bold m-0 main-title">Hai, <span class="purple-text"><%= user.getNama() %></span></h1>

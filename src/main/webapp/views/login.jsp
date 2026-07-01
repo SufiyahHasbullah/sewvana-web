@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/pages/auth.css">
     <style>
         /* Login specific — centered card layout */
-        body { background: var(--sw-bg); display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        body { background: var(--sw-bg); display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 1.5rem 1rem; }
         .sw-login-card {
             background: var(--sw-surface);
             border-radius: var(--sw-radius-card);
@@ -37,6 +37,15 @@
         .form-control { border-color: var(--sw-border); }
         .divider { display: flex; align-items: center; gap: 0.75rem; color: var(--sw-text-muted); font-size: 0.8rem; }
         .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--sw-border); }
+        
+        @media (max-width: 575.98px) {
+            body { padding: 1rem 0.5rem; }
+            .sw-login-card {
+                padding: 1.75rem 1.25rem;
+                border-radius: var(--sw-radius);
+            }
+            .brand-title { font-size: 1.35rem; }
+        }
     </style>
 </head>
 <body>
@@ -120,9 +129,9 @@
 
         <div class="text-center mt-3 small">
             <p class="mb-1 text-muted">Belum mempunyai akaun?
-                <a href="register.jsp" class="purple-link">Daftar Sekarang</a>
+                <a href="${pageContext.request.contextPath}/views/register.jsp" class="purple-link">Daftar Sekarang</a>
             </p>
-            <a href="${pageContext.request.contextPath}/index.jsp" class="text-muted">
+            <a href="${pageContext.request.contextPath}/" class="text-muted">
                 <i class="bi bi-arrow-left me-1"></i> Kembali ke Utama
             </a>
         </div>

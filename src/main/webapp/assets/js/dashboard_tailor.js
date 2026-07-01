@@ -32,30 +32,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function navigasiPenjahit(tujuan) {
     if (!tujuan) return;
-    
-    // Dapatkan laluan context path pelayan (ROOT)
-    const konteksPath = window.location.pathname.substring(0, window.location.pathname.indexOf('/', 1));
-    
+    var ctx = (typeof APP_CONTEXT !== 'undefined') ? APP_CONTEXT : '';
+
     switch(tujuan) {
         case 'tempahan':
-            window.location.href = konteksPath + "/penjahit/pesanan";
+            window.location.href = ctx + "/penjahit/pesanan";
             break;
         case 'jadual':
-            window.location.href = konteksPath + "/penjahit/slot";
+            window.location.href = ctx + "/penjahit/slot";
             break;
         case 'pelanggan':
-            window.location.href = konteksPath + "/penjahit/senarai-pelanggan";
+            window.location.href = ctx + "/penjahit/pesanan";
             break;
         case 'pembayaran':
-            window.location.href = konteksPath + "/penjahit/rekod-bayaran";
+            window.location.href = ctx + "/penjahit/rekod-bayaran";
             break;
         case 'laporan':
-            window.location.href = konteksPath + "/penjahit/laporan-tahunan";
+            window.location.href = ctx + "/penjahit/rekod-bayaran";
             break;
         case 'profil':
-            window.location.href = konteksPath + "/penjahit/profil-kedai";
+            window.location.href = ctx + "/penjahit/profil-kedai";
             break;
         default:
-            window.location.href = konteksPath + "/penjahit/dashboard";
+            window.location.href = ctx + "/penjahit/dashboard";
     }
-}
+}

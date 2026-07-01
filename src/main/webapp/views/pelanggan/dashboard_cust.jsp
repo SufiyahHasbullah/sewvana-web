@@ -44,6 +44,7 @@
     <%@ include file="/WEB-INF/jspf/sidebar-customer.jspf" %>
 
     <div class="sewvana-main-content">
+        <%@ include file="/WEB-INF/jspf/topbar.jspf" %>
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
                 <h1 class="fw-bold m-0 heading-warga-emas">Hai, <span class="purple-text"><%= user.getNama() %></span></h1>
@@ -51,34 +52,106 @@
             </div>
         </div>
 
+        <style>
+            /* Cute & Uniform Stat Cards */
+            .cute-stat-card {
+                border-radius: 20px;
+                border: none;
+                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+                cursor: pointer;
+                overflow: hidden;
+                position: relative;
+            }
+            .cute-stat-card:hover {
+                transform: translateY(-5px) scale(1.02);
+                box-shadow: 0 12px 24px rgba(107, 78, 155, 0.15) !important;
+            }
+            .cute-stat-card .card-body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 100%;
+                padding: 1.5rem;
+            }
+            /* Uniform Purple to White Gradient */
+            .bg-purple-white-gradient {
+                background: linear-gradient(135deg, #a18cd1 0%, #ffffff 100%);
+                border: 1px solid #e2d9f3;
+                color: #4a4a4a;
+            }
+            .stat-icon-wrapper {
+                background: rgba(107, 78, 155, 0.1);
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                backdrop-filter: blur(5px);
+            }
+            
+            /* Cat Cards Enhancement */
+            .cat-card {
+                border-radius: 18px;
+                transition: all 0.3s ease;
+                border: 1px solid #f0eaff;
+                background: #ffffff;
+                cursor: pointer;
+            }
+            .cat-card:hover {
+                background: #faf7ff;
+                border-color: #d1c4e9;
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(107, 78, 155, 0.1) !important;
+            }
+            .cat-icon {
+                font-size: 2.2rem;
+                color: #8c68cd;
+                display: inline-block;
+                transition: transform 0.3s ease;
+            }
+            .cat-card:hover .cat-icon {
+                transform: scale(1.15) rotate(5deg);
+            }
+        </style>
+
         <div class="row g-4 mb-5">
             <div class="col-12 col-md-4">
-                <div class="card card-stat card-purple text-white shadow" onclick="navigasiMenu('tempahan')">
-                    <div class="d-flex justify-content-between align-items-center">
+                <div class="card cute-stat-card bg-purple-white-gradient shadow-sm h-100" onclick="navigasiMenu('tempahan')">
+                    <div class="card-body d-flex flex-row justify-content-between align-items-center">
                         <div>
-                            <h4 class="fw-normal mb-1">Tempahan Aktif</h4>
-                            <h2 class="display-6 fw-bold m-0">${tempahanAktif}</h2>
+                            <h5 class="fw-medium mb-1 opacity-75" style="color:#6a4993;">Tempahan Aktif</h5>
+                            <h2 class="display-5 fw-bold m-0" style="color:#4a3266;">${tempahanAktif}</h2>
                         </div>
-                        <i class="bi bi-clock-history fs-1 opacity-75"></i>
+                        <div class="stat-icon-wrapper">
+                            <i class="bi bi-clock-history fs-3" style="color:#6a4993;"></i>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-4">
-                <div class="card card-stat card-lavender shadow-sm" onclick="navigasiMenu('notifikasi')">
-                    <div class="d-flex justify-content-between align-items-center">
+                <div class="card cute-stat-card bg-purple-white-gradient shadow-sm h-100" onclick="navigasiMenu('notifikasi')">
+                    <div class="card-body d-flex flex-row justify-content-between align-items-center">
                         <div>
-                            <h4 class="fw-normal purple-text mb-1">Notifikasi Baru</h4>
-                            <h2 class="display-6 fw-bold purple-text m-0">${jumlahNotifikasi}</h2>
+                            <h5 class="fw-medium mb-1 opacity-75" style="color:#6a4993;">Notifikasi Baru</h5>
+                            <h2 class="display-5 fw-bold m-0" style="color:#4a3266;">${jumlahNotifikasi}</h2>
                         </div>
-                        <i class="bi bi-bell fs-1 purple-text"></i>
+                        <div class="stat-icon-wrapper">
+                            <i class="bi bi-bell fs-3" style="color: #6a4993;"></i>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-4">
-                <div class="card card-stat card-white border-dashed text-center" onclick="navigasiMenu('slot')">
-                    <div>
-                        <i class="bi bi-calendar-plus-fill cat-icon mb-2 d-block"></i>
-                        <h4 class="fw-bold purple-text m-0">Tempah Slot</h4>
+                <div class="card cute-stat-card bg-purple-white-gradient shadow-sm h-100" onclick="navigasiMenu('slot')">
+                    <div class="card-body d-flex flex-row justify-content-between align-items-center">
+                        <div>
+                            <h5 class="fw-medium mb-1 opacity-75" style="color:#6a4993;">Tempah Slot</h5>
+                            <h2 class="h4 fw-bold m-0 mt-2" style="color:#4a3266;">Buat Baru</h2>
+                        </div>
+                        <div class="stat-icon-wrapper">
+                            <i class="bi bi-calendar-heart fs-3" style="color: #6a4993;"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -241,6 +314,7 @@
 
     <%@ include file="/WEB-INF/jspf/bottom-nav-customer.jspf" %>
 
+    <%@ include file="/WEB-INF/jspf/scripts.jspf" %>
     <script src="${pageContext.request.contextPath}/assets/js/dashboard_cust.js"></script>
 </body>
 </html>

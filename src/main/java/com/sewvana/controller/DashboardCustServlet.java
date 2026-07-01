@@ -68,7 +68,7 @@ public class DashboardCustServlet extends HttpServlet {
             }
 
             // B. Kira Notifikasi Belum Dibaca
-            String sqlNotif = "SELECT COUNT(*) FROM notifikasi WHERE id_pengguna = ? AND status = 'Belum Dibaca'";
+            String sqlNotif = "SELECT COUNT(*) FROM notifikasi WHERE pengguna_id = ? AND status_baca = 'BELUM_BACA'";
             try (PreparedStatement ps = conn.prepareStatement(sqlNotif)) {
                 ps.setInt(1, idPelanggan);
                 try (ResultSet rs = ps.executeQuery()) {

@@ -25,6 +25,7 @@
     <%@ include file="/WEB-INF/jspf/sidebar-tailor.jspf" %>
 
     <div class="sewvana-main-content">
+        <%@ include file="/WEB-INF/jspf/topbar.jspf" %>
 
         <%-- Header --%>
         <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3">
@@ -191,7 +192,6 @@
 
     <%@ include file="/WEB-INF/jspf/bottom-nav-tailor.jspf" %>
     <%@ include file="/WEB-INF/jspf/scripts.jspf" %>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="${pageContext.request.contextPath}/assets/js/service.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {

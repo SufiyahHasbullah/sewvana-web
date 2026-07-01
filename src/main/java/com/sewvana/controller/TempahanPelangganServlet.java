@@ -38,6 +38,10 @@ public class TempahanPelangganServlet extends HttpServlet {
         }
 
         int idPelanggan = user.getId();
+        
+        // Tandakan semua notifikasi pelanggan sebagai 'DAH_BACA' memandangkan mereka sedang menyemak status tempahan
+        tempahanDAO.tandakanNotifikasiTelahDibaca(idPelanggan);
+        
         List<Tempahan> senaraiTempahan = tempahanDAO.dapatkanSemaraiTempahanPelanggan(idPelanggan);
 
         request.setAttribute("senaraiTempahan", senaraiTempahan);

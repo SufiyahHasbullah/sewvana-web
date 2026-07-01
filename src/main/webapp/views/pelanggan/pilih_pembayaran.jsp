@@ -3,7 +3,7 @@
 <%
     Pengguna user = (Pengguna) session.getAttribute("pengguna");
     if (user == null) {
-        response.sendRedirect(request.getContextPath() + "/views/auth/login.jsp");
+        response.sendRedirect(request.getContextPath() + "/views/login.jsp");
         return;
     }
     String pageTitle = "Gerbang Pembayaran";

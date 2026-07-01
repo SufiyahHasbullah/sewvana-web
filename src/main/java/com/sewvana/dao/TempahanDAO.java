@@ -97,4 +97,45 @@ public class TempahanDAO {
             return false;
         }
     }
+
+    public int dapatkanPelangganId(int tempahanId) {
+        String sql = "SELECT pelanggan_id FROM tempahan_slot WHERE id = ?";
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, tempahanId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("pelanggan_id");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    public boolean tambahNotifikasi(int penggunaId, String tajuk, String mesej) {
+        String sql = "INSERT INTO notifikasi (pengguna_id, tajuk, mesej, status_baca) VALUES (?, ?, ?, 'BELUM_BACA')";
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, penggunaId);
+            ps.setString(2, tajuk);
+            ps.setString(3, mesej);
+            return ps.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public void tandakanNotifikasiTelahDibaca(int penggunaId) {
+        String sql = "UPDATE notifikasi SET status_baca = 'DAH_BACA' WHERE pengguna_id = ? AND status_baca = 'BELUM_BACA'";
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, penggunaId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

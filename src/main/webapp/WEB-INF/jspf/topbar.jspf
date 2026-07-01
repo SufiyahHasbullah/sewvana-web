@@ -1,0 +1,11 @@
+<%-- ============================================================
+     topbar.jspf — Mobile Top Header Bar for Sewvana
+     Usage: <%@ include file="/WEB-INF/jspf/topbar.jspf" %>
+     ============================================================ --%>
+<div class="d-flex d-lg-none align-items-center justify-content-between mb-4 p-3 bg-white border rounded-3 shadow-sm" style="margin-top: -0.5rem; border-color: var(--sw-border) !important;">
+    <button type="button" class="btn btn-sm border-0 d-flex align-items-center justify-content-center" id="swMenuBtn" style="background: var(--sw-primary-pale); color: var(--sw-primary); width: 40px; height: 40px; border-radius: var(--sw-radius-sm);">
+        <i class="bi bi-list fs-3"></i>
+    </button>
+    <span class="fw-bold text-dark" style="font-family: 'Poppins', sans-serif; font-size: 1.1rem;"><i class="bi bi-scissors" style="color: var(--sw-primary); margin-right: 0.25rem;"></i>Sewvana</span>
+    <div style="width: 40px;"></div>
+</div>

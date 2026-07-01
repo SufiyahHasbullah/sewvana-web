@@ -51,6 +51,7 @@
     <%@ include file="/WEB-INF/jspf/sidebar-tailor.jspf" %>
 
     <div class="sewvana-main-content">
+        <%@ include file="/WEB-INF/jspf/topbar.jspf" %>
 
         <%-- ── Header ── --%>
         <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3">

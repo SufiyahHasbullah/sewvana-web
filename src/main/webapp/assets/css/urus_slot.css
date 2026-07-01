@@ -171,17 +171,37 @@
     background-color: var(--sw-divider);
 }
 
-/* Mobile responsive padding */
+/* Mobile responsive padding & scaling */
 @media (max-width: 767.98px) {
+    .calendar-weekdays-grid {
+        font-size: 0.8rem !important;
+        padding-bottom: 8px !important;
+    }
+    .calendar-days-grid {
+        gap: 5px !important;
+    }
     .calendar-day-cell {
-        aspect-ratio: 1 / 1;
-        padding: 4px;
+        aspect-ratio: auto !important;
+        min-height: 64px !important; /* Provide stable height to avoid clipping */
+        padding: 6px 4px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        align-items: center !important;
     }
     .calendar-day-cell .day-num {
-        font-size: 1rem;
+        font-size: 1.05rem !important;
+        font-weight: 700 !important;
     }
     .calendar-day-cell .day-badge {
-        font-size: 0.6rem;
-        padding: 2px 4px;
+        font-size: 0.68rem !important; /* Increased from 0.6rem for mobile readability */
+        padding: 2px 4px !important;
+        width: 95% !important;
+        max-width: 100% !important;
+        margin-top: 4px !important;
+        border-radius: var(--sw-radius-xs) !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
     }
 }

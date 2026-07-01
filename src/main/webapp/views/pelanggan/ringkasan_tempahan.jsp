@@ -35,6 +35,7 @@
     <%@ include file="/WEB-INF/jspf/sidebar-customer.jspf" %>
 
     <div class="sewvana-main-content">
+        <%@ include file="/WEB-INF/jspf/topbar.jspf" %>
         <div class="content-header mb-4">
             <h1 class="fw-bold m-0 main-title">Semakan Ringkasan Tempahan</h1>
             <p class="text-muted m-0 sub-title text-large">Langkah 3: Sila semak perincian invois multi-service dan tentukan komitmen bayaran.</p>
@@ -209,7 +210,8 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <%@ include file="/WEB-INF/jspf/bottom-nav-customer.jspf" %>
+    <%@ include file="/WEB-INF/jspf/scripts.jspf" %>
     <script src="${pageContext.request.contextPath}/assets/js/ringkasan_tempahan.js"></script>
 </body>
 </html>

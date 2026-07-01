@@ -7,30 +7,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function navigasiAdmin(tujuan) {
     if (!tujuan) return;
-
-    // Mengekstrak laluan konteks aplikasi web secara dinamik
-    const konteks = window.location.pathname.substring(0, window.location.pathname.indexOf('/', 1));
+    var ctx = (typeof APP_CONTEXT !== 'undefined') ? APP_CONTEXT : '';
 
     switch(tujuan) {
         case 'pengguna':
-            window.location.href = konteks + "/admin/urus-pengguna";
+            window.location.href = ctx + "/admin/urus-pengguna";
             break;
         case 'penjahit':
-            window.location.href = konteks + "/admin/urus-penjahit";
+            window.location.href = ctx + "/admin/urus-penjahit";
             break;
         case 'tempahan':
-            window.location.href = konteks + "/admin/urus-tempahan";
+            window.location.href = ctx + "/admin/urus-tempahan";
             break;
         case 'pembayaran':
-            window.location.href = konteks + "/admin/urus-pembayaran";
+            window.location.href = ctx + "/admin/urus-pembayaran";
             break;
         case 'laporan':
-            window.location.href = konteks + "/admin/laporan-sistem";
+            window.location.href = ctx + "/admin/laporan-sistem";
             break;
         case 'tetapan':
-            window.location.href = konteks + "/admin/tetapan-sistem";
+            window.location.href = ctx + "/admin/tetapan-sistem";
             break;
         default:
-            window.location.href = konteks + "/admin/dashboard";
+            window.location.href = ctx + "/admin/dashboard";
     }
-}
+}

@@ -15,6 +15,7 @@
     <%@ include file="/WEB-INF/jspf/sidebar-customer.jspf" %>
 
     <div class="sewvana-main-content">
+        <%@ include file="/WEB-INF/jspf/topbar.jspf" %>
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
                 <h1 class="fw-bold m-0 heading-warga-emas">Rekod <span class="purple-text">Urus Niaga</span> Anda</h1>

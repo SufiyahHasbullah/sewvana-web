@@ -464,6 +464,45 @@
    8. RESPONSIVE / MOBILE STACKABLE TABLES
    ============================================================ */
 @media (max-width: 767.98px) {
+  /* --- Mobile Form Sizing & iOS Auto-zoom Prevention --- */
+  .form-control,
+  .form-select,
+  .form-control-lg,
+  .form-select-lg {
+    height: 48px !important;
+    font-size: 16px !important; /* iOS Safari requires min 16px/1rem to avoid auto-zoom */
+    padding: 0.75rem 1rem !important;
+  }
+  
+  .form-label {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* --- Tap Target Upgrades for General Buttons --- */
+  .btn-sw-primary,
+  .btn-purple,
+  .btn-sw-outline,
+  .btn-outline-purple,
+  .btn-sw-grand,
+  .btn-purple-grand {
+    min-height: 48px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* --- Card Padding Reductions for Sizing Breathing Room --- */
+  .sw-card,
+  .card-premium,
+  .sw-stat-card {
+    padding: 1.25rem 1rem !important;
+    border-radius: var(--sw-radius) !important;
+  }
+
+  /* --- Mobile Stackable Tables --- */
   .table-responsive {
     border: none !important;
     overflow: visible !important;
@@ -488,7 +527,7 @@
   .table-sw tr {
     background: var(--sw-surface) !important;
     border: 1.5px solid var(--sw-border) !important;
-    border-radius: var(--sw-radius-card) !important;
+    border-radius: var(--sw-radius) !important;
     padding: 1.25rem !important;
     margin-bottom: 1.25rem !important;
     box-shadow: var(--sw-shadow-xs) !important;
@@ -506,7 +545,7 @@
   }
   .sw-table tbody td,
   .table-sw tbody td {
-    padding: 0.625rem 0 !important;
+    padding: 0.75rem 0 !important;
     border-bottom: 1px dashed var(--sw-divider) !important;
     text-align: left !important;
     display: flex !important;
@@ -515,20 +554,62 @@
     align-items: center !important;
     gap: 0.5rem !important;
     background: transparent !important;
+    font-size: 0.95rem !important;
+    color: var(--sw-text) !important;
   }
+  
+  /* Tindakan / Action Column Stack & Full-Width Tap Targets */
   .sw-table tbody td:last-child,
   .table-sw tbody td:last-child {
     border-bottom: none !important;
-    padding-top: 1rem !important;
+    padding-top: 1.25rem !important;
     margin-top: 0.5rem !important;
-    justify-content: center !important; /* Butang tindakan di tengah */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
   }
+  
+  .sw-table tbody td:last-child form,
+  .table-sw tbody td:last-child form {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.5rem !important;
+  }
+  
+  .sw-table tbody td:last-child .btn,
+  .table-sw tbody td:last-child .btn,
+  .sw-table tbody td:last-child form .btn,
+  .table-sw tbody td:last-child form .btn {
+    display: flex !important;
+    width: 100% !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 48px !important;
+    font-size: 0.95rem !important;
+    padding: 0.75rem 1rem !important;
+    margin: 0 !important;
+    border-radius: var(--sw-radius) !important;
+    font-weight: 700 !important;
+  }
+
+  /* Make batal text link look like a subtle outline button on mobile */
+  .sw-table tbody td:last-child form .btn-link,
+  .table-sw tbody td:last-child form .btn-link {
+    background: var(--sw-danger-pale) !important;
+    color: var(--sw-danger) !important;
+    text-decoration: none !important;
+    border: 1px solid var(--sw-danger-border) !important;
+  }
+  
   .sw-table tbody td::before,
   .table-sw tbody td::before {
     content: attr(data-label);
     font-weight: 700;
     color: var(--sw-text-muted);
-    font-size: 0.72rem;
+    font-size: 0.85rem !important;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     flex-shrink: 0;

@@ -11,12 +11,15 @@
 <head>
     <%@ include file="/WEB-INF/jspf/head.jspf" %>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/tempah_slot.css">
+    <!-- Tambah Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
 
     <%@ include file="/WEB-INF/jspf/sidebar-customer.jspf" %>
 
     <div class="sewvana-main-content">
+        <%@ include file="/WEB-INF/jspf/topbar.jspf" %>
         <div class="content-header mb-4">
             <h1 class="fw-bold m-0 main-title">Jadual Slot <span class="purple-text">${namaPenjahit}</span></h1>
             <p class="text-muted m-0 sub-title text-large">Sila lengkapkan perincian tempahan pakaian dan pengurusan sesi jahit anda.</p>
@@ -81,37 +84,12 @@
                         <label class="form-label fw-bold text-dark fs-4 mb-3">
                             <i class="bi bi-calendar3 text-purple me-2"></i>2. Pilih Tarikh Yang Tersedia
                         </label>
+                        <p class="text-muted small">Sila pilih satu tarikh dari kalendar di bawah. Tarikh yang kelabu bermaksud slot penjahit telah penuh atau tutup.</p>
 
-                        <div class="row g-3">
-                            <%
-                                List<Map<String, Object>> kalendarSlot = (List<Map<String, Object>>) request.getAttribute("kalendarSlot");
-                                if (kalendarSlot != null && !kalendarSlot.isEmpty()) {
-                                    int index = 0;
-                                    for (Map<String, Object> slot : kalendarSlot) {
-                                        String status = (String) slot.get("status");
-                                        boolean isTersedia = "TERSEDIA".equals(status);
-                                        index++;
-                            %>
-                                <div class="col-12 col-md-6">
-                                    <input type="radio" class="btn-check" name="tarikhSlot" id="slot_<%= index %>" value="<%= slot.get("tarikh") %>" <%= isTersedia ? "" : "disabled" %> required onchange="kemaskiniNotifikasiMasa(this.value)">
-                                    <label class="btn-outline-slot p-3 d-block rounded-3 border text-center" for="slot_<%= index %>">
-                                        <span class="d-block fw-bold fs-5 text-dark"><%= slot.get("tarikh") %></span>
-                                        <small class="text-muted d-block my-1">Baki: <%= slot.get("baki") %> slot</small>
-                                        <% if (isTersedia) { %>
-                                            <span class="badge bg-success-subtle text-success px-3 py-1 rounded-pill small">TERSEDIA</span>
-                                        <% } else { %>
-                                            <span class="badge bg-danger-subtle text-danger px-3 py-1 rounded-pill small">PENUH</span>
-                                        <% } %>
-                                    </label>
-                                </div>
-                            <%
-                                    }
-                                } else {
-                            %>
-                                <div class="col-12 text-center py-4">
-                                    <p class="text-danger fw-bold fs-5">Tiada slot operasi dibuka oleh penjahit buat masa ini.</p>
-                                </div>
-                            <% } %>
+                        <div class="mb-2 position-relative">
+                            <i class="bi bi-calendar-event position-absolute top-50 start-0 translate-middle-y ms-3 text-purple fs-5"></i>
+                            <input type="text" id="tarikhSlotPicker" class="form-control form-control-lg bg-light border-0 shadow-sm px-5 py-3" placeholder="Pilih tarikh temujanji anda" readonly style="cursor: pointer; font-weight: bold; color: #3D2C5E;">
+                            <input type="hidden" name="tarikhSlot" id="tarikhSlotFormInput" required>
                         </div>
                     </div>
 
@@ -220,8 +198,42 @@
     </div>
 
     <%@ include file="/WEB-INF/jspf/bottom-nav-customer.jspf" %>
-
+    <%@ include file="/WEB-INF/jspf/scripts.jspf" %>
+    <!-- Tambah Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="${pageContext.request.contextPath}/assets/js/tempah_slot.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var availableDates = [
+            <%
+                List<Map<String, Object>> jsKalendarSlot = (List<Map<String, Object>>) request.getAttribute("kalendarSlot");
+                if (jsKalendarSlot != null && !jsKalendarSlot.isEmpty()) {
+                    for (Map<String, Object> slot : jsKalendarSlot) {
+                        if ("TERSEDIA".equals(slot.get("status"))) {
+            %>
+                "<%= slot.get("tarikh") %>",
+            <%
+                        }
+                    }
+                }
+            %>
+            ];
+
+            flatpickr("#tarikhSlotPicker", {
+                dateFormat: "Y-m-d",
+                minDate: "today",
+                enable: availableDates,
+                disableMobile: "true", // Pastikan sentiasa popup lawa kat mobile
+                onChange: function(selectedDates, dateStr, instance) {
+                    document.getElementById('tarikhSlotFormInput').value = dateStr;
+                    if(typeof kemaskiniNotifikasiMasa === 'function') {
+                        kemaskiniNotifikasiMasa(dateStr);
+                    }
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>

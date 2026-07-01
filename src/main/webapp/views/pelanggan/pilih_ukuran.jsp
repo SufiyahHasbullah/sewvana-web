@@ -19,6 +19,7 @@
     <%@ include file="/WEB-INF/jspf/sidebar-customer.jspf" %>
 
     <div class="sewvana-main-content">
+        <%@ include file="/WEB-INF/jspf/topbar.jspf" %>
         <div class="content-header mb-4">
             <h1 class="fw-bold m-0 main-title">Pilihan Kaedah Ukuran</h1>
             <p class="text-muted m-0 sub-title text-large">Langkah 2: Sila pilih bagaimana maklumat ukuran saiz badan hendak diserahkan.</p>
@@ -129,5 +130,7 @@
             }
         }
     </script>
+    <%@ include file="/WEB-INF/jspf/bottom-nav-customer.jspf" %>
+    <%@ include file="/WEB-INF/jspf/scripts.jspf" %>
 </body>
 </html>

@@ -35,6 +35,15 @@
         .form-control, .form-select { border-color: var(--sw-border); }
         .divider { display: flex; align-items: center; gap: 0.75rem; color: var(--sw-text-muted); font-size: 0.8rem; }
         .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--sw-border); }
+        
+        @media (max-width: 575.98px) {
+            body { padding: 1rem 0.5rem; }
+            .sw-register-card {
+                padding: 1.75rem 1.25rem;
+                border-radius: var(--sw-radius);
+            }
+            .brand-title { font-size: 1.3rem; }
+        }
     </style>
 </head>
 <body>
@@ -130,16 +139,16 @@
 
         <div class="text-center mt-3 small">
             <p class="mb-1 text-muted">Sudah mempunyai akaun?
-                <a href="login.jsp" class="purple-link">Log Masuk</a>
+                <a href="${pageContext.request.contextPath}/views/login.jsp" class="purple-link">Log Masuk</a>
             </p>
-            <a href="${pageContext.request.contextPath}/index.jsp" class="text-muted">
+            <a href="${pageContext.request.contextPath}/" class="text-muted">
                 <i class="bi bi-arrow-left me-1"></i> Kembali ke Utama
             </a>
         </div>
     </div>
 
     <%@ include file="/WEB-INF/jspf/scripts.jspf" %>
-    <script src="${pageContext.request.contextPath}/assets/js/register.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/register.js?v=20260702"></script>
     <script>
         // Toggle password
         document.getElementById('togglePwd').addEventListener('click', function() {

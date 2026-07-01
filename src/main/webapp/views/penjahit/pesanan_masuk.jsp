@@ -62,6 +62,7 @@
     <%@ include file="/WEB-INF/jspf/sidebar-tailor.jspf" %>
 
     <div class="sewvana-main-content">
+        <%@ include file="/WEB-INF/jspf/topbar.jspf" %>
 
         <%-- Flash messages --%>
         <% if (flashSuccess != null) { %>
@@ -200,32 +201,36 @@
                                 <form action="${pageContext.request.contextPath}/pengurusan-tempahan" method="POST" class="d-inline">
                                     <input type="hidden" name="tempahanId" value='<%= t.get("id") %>'>
                                     <% if ("MENUNGGU_PENGESAHAN".equals(status)) { %>
-                                        <button type="submit" name="action" value="sahkan" class="btn btn-sm btn-success rounded-pill px-3 fw-bold">
+                                        <button type="submit" name="action" value="sahkan" class="btn btn-sm btn-success rounded-pill px-3 fw-bold mb-1">
                                             Sahkan
                                         </button>
                                     <% } %>
                                     <% if ("DISAHKAN".equals(status)) { %>
-                                        <button type="submit" name="action" value="jahit" class="btn btn-sm btn-primary rounded-pill px-3 fw-bold text-white">
+                                        <button type="submit" name="action" value="jahit" class="btn btn-sm btn-primary rounded-pill px-3 fw-bold text-white mb-1">
                                             Mula Jahit
                                         </button>
                                     <% } %>
                                     <% if ("SEDANG_DIJAHIT".equals(status)) { %>
-                                        <button type="submit" name="action" value="siap" class="btn btn-sm rounded-pill px-3 fw-bold text-white" style="background:var(--sw-primary);">
+                                        <button type="submit" name="action" value="siap" class="btn btn-sm rounded-pill px-3 fw-bold text-white mb-1" style="background:var(--sw-primary);">
                                             Selesai
                                         </button>
                                     <% } %>
                                     <% if ("SIAP".equals(status)) { %>
-                                        <button type="submit" name="action" value="ambil" class="btn btn-sm btn-dark rounded-pill px-3 fw-bold">
+                                        <button type="submit" name="action" value="ambil" class="btn btn-sm btn-dark rounded-pill px-3 fw-bold mb-1">
                                             Diserah
                                         </button>
                                     <% } %>
-                                    <% if (!"SIAP".equals(status) && !"DIAMBIL".equals(status) && !"BATAL".equals(status)) { %>
-                                        <button type="submit" name="action" value="batal" class="btn btn-sm btn-link text-danger fw-semibold ms-1 p-0 text-decoration-none">
-                                            Batal
-                                        </button>
-                                    <% } else if ("DIAMBIL".equals(status) || "BATAL".equals(status)) { %>
-                                        <span class="text-muted small">—</span>
-                                    <% } %>
+                                    
+                                    <div class="mt-2">
+                                        <a href="${pageContext.request.contextPath}/penjahit/ukuran-pelanggan?pelangganId=<%= t.get("pelanggan_id") %>&tempahanId=<%= t.get("id") %>&namaPelanggan=<%= java.net.URLEncoder.encode(t.get("pelanggan"), "UTF-8") %>" class="btn btn-sm btn-outline-purple rounded-pill px-3 fw-bold" style="font-size:0.75rem;">
+                                            <i class="bi bi-rulers me-1"></i> Ukuran
+                                        </a>
+                                        <% if (!"SIAP".equals(status) && !"DIAMBIL".equals(status) && !"BATAL".equals(status)) { %>
+                                            <button type="submit" name="action" value="batal" class="btn btn-sm btn-link text-danger fw-semibold ms-1 p-0 text-decoration-none" style="font-size:0.75rem;" onclick="return confirm('Adakah anda pasti mahu membatalkan tempahan ini? Tindakan ini tidak boleh dipadam.');">
+                                                Batal
+                                            </button>
+                                        <% } %>
+                                    </div>
                                 </form>
                             </td>
                         </tr>

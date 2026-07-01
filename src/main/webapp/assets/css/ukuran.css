@@ -1,0 +1,253 @@
+/* ============================================================
+   ukuran.css — Halaman Ukuran Badan Pelanggan
+   Sewvana Design System
+   ============================================================ */
+
+/* ── Body diagram illustration ── */
+.ukuran-hero {
+    background: linear-gradient(135deg, #3D2C5E 0%, #6B4E9B 60%, #9B7ECB 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+.ukuran-hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.ukuran-hero .hero-icon {
+    font-size: 4rem;
+    opacity: 0.85;
+}
+.ukuran-hero .hero-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+/* ── Section Cards ── */
+.ukuran-section-card {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid rgba(107, 78, 155, 0.08);
+    box-shadow: 0 4px 20px rgba(61, 44, 94, 0.06);
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+    transition: box-shadow 0.25s ease;
+}
+.ukuran-section-card:hover {
+    box-shadow: 0 8px 30px rgba(107, 78, 155, 0.12);
+}
+.ukuran-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6B4E9B;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid rgba(107, 78, 155, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ── Measurement Input Groups ── */
+.ukuran-input-group {
+    position: relative;
+}
+.ukuran-input-group label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #3D2C5E;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.ukuran-input-group label .help-icon {
+    color: #9B7ECB;
+    font-size: 0.75rem;
+    cursor: help;
+}
+.ukuran-input-field {
+    width: 100%;
+    padding: 0.65rem 3.2rem 0.65rem 1rem;
+    border: 2px solid #eaeaea;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #3D2C5E;
+    background: #fafafa;
+    transition: all 0.2s ease;
+    outline: none;
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+.ukuran-input-field::-webkit-outer-spin-button,
+.ukuran-input-field::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+.ukuran-input-field:focus {
+    border-color: #6B4E9B;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(107, 78, 155, 0.12);
+}
+.ukuran-input-field.has-value {
+    border-color: rgba(107, 78, 155, 0.4);
+    background: #fff;
+}
+.ukuran-unit {
+    position: absolute;
+    right: 14px;
+    bottom: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #9B7ECB;
+    pointer-events: none;
+}
+
+/* ── Last updated badge ── */
+.ukuran-last-update {
+    background: rgba(107, 78, 155, 0.06);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.82rem;
+    color: #5D5370;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.ukuran-last-update .badge-who {
+    background: #6B4E9B;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+/* ── Password Modal ── */
+.modal-ukuran .modal-content {
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 20px 60px rgba(61, 44, 94, 0.2);
+}
+.modal-ukuran .modal-header {
+    background: linear-gradient(135deg, #3D2C5E, #6B4E9B);
+    color: #fff;
+    border-radius: 20px 20px 0 0;
+    border: none;
+    padding: 1.25rem 1.5rem;
+}
+.modal-ukuran .modal-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.modal-ukuran .modal-header .btn-close {
+    filter: invert(1);
+    opacity: 0.8;
+}
+.modal-ukuran .modal-body {
+    padding: 1.75rem;
+}
+.modal-ukuran .security-icon {
+    font-size: 3rem;
+    color: #6B4E9B;
+    display: block;
+    text-align: center;
+    margin-bottom: 0.75rem;
+}
+.modal-ukuran .pw-input {
+    border: 2px solid #eaeaea;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+.modal-ukuran .pw-input:focus {
+    border-color: #6B4E9B;
+    box-shadow: 0 0 0 4px rgba(107, 78, 155, 0.12);
+}
+.modal-ukuran .btn-confirm {
+    background: linear-gradient(135deg, #6B4E9B, #3D2C5E);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 0.7rem 2rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+    width: 100%;
+}
+.modal-ukuran .btn-confirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(61, 44, 94, 0.3);
+}
+
+/* ── Empty state ── */
+.ukuran-empty-state {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    color: #9B7ECB;
+}
+.ukuran-empty-state i {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+/* ── Tailor view banner ── */
+.tailor-access-banner {
+    background: linear-gradient(135deg, #1A1033, #2D1F52);
+    color: #fff;
+    border-radius: 14px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+.tailor-access-banner .banner-icon {
+    font-size: 1.8rem;
+    color: #9B7ECB;
+    flex-shrink: 0;
+}
+
+/* ── Save button ── */
+.btn-simpan-ukuran {
+    background: linear-gradient(135deg, #6B4E9B 0%, #3D2C5E 100%);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 0.85rem 2.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(61, 44, 94, 0.25);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.btn-simpan-ukuran:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(61, 44, 94, 0.35);
+    color: #fff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 576px) {
+    .ukuran-section-card { padding: 1.25rem; }
+    .ukuran-hero { padding: 1.5rem; }
+    .ukuran-hero .hero-title { font-size: 1.2rem; }
+}

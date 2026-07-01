@@ -293,23 +293,43 @@
     margin-left: 0 !important;
     width: 100%;
     padding: 1.25rem 1rem;
-    padding-bottom: calc(var(--sw-bottom-nav-height) + 1.25rem);
+    padding-bottom: calc(72px + 1.25rem) !important; /* Extra bottom padding for larger nav bar */
   }
 
-  .sw-bottom-nav { display: flex; }
+  .sw-bottom-nav {
+    display: flex;
+    height: 72px !important; /* Taller height for easier touch access */
+    padding-bottom: env(safe-area-inset-bottom); /* iOS home indicator safe area support */
+  }
+
+  .sw-bottom-nav-item {
+    font-size: 0.8rem !important; /* Marginally larger text */
+    padding: 0.5rem 0.5rem !important;
+    gap: 0.15rem !important;
+  }
+  .sw-bottom-nav-item i {
+    font-size: 1.45rem !important; /* Larger icons for easy clicking */
+  }
 }
 
 @media (max-width: 767.98px) {
   .sw-main-content,
   .sewvana-main-content {
-    padding: 1rem 0.875rem;
-    padding-bottom: calc(var(--sw-bottom-nav-height) + 1rem);
+    padding: 1rem 0.75rem !important; /* Narrower padding to gain screen space */
+    padding-bottom: calc(72px + 1rem) !important;
   }
 
-  .content-header .main-title { font-size: 1.25rem; }
+  .content-header .main-title {
+    font-size: 1.35rem !important;
+  }
 
-  .sw-stat-card { padding: 1rem; }
-  .sw-stat-value { font-size: 1.375rem; }
+  .sw-stat-card {
+    padding: 1.25rem 1rem !important;
+    gap: 0.875rem !important;
+  }
+  .sw-stat-value {
+    font-size: 1.45rem !important;
+  }
 }
 
 /* ============================================================

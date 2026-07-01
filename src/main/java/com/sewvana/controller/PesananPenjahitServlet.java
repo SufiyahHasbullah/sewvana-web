@@ -41,7 +41,7 @@ public class PesananPenjahitServlet extends HttpServlet {
         int idPenjahit = user.getId();
         List<Map<String, String>> senaraiTempahan = new ArrayList<>();
 
-        String sqlSenarai = "SELECT t.id, t.kod_tempahan, t.kategori_pakaian, t.catatan, t.tarikh_slot, t.status_tempahan, p.nama AS nama_pelanggan, COALESCE(bayar.jumlah_bayaran, 0.00) AS bayaran " +
+        String sqlSenarai = "SELECT t.id, t.pelanggan_id, t.kod_tempahan, t.kategori_pakaian, t.catatan, t.tarikh_slot, t.status_tempahan, p.nama AS nama_pelanggan, COALESCE(bayar.jumlah_bayaran, 0.00) AS bayaran " +
                 "FROM tempahan_slot t " +
                 "JOIN pengguna p ON t.pelanggan_id = p.id " +
                 "LEFT JOIN pembayaran bayar ON t.id = bayar.tempahan_slot_id " +
@@ -65,6 +65,7 @@ public class PesananPenjahitServlet extends HttpServlet {
                 while (rs.next()) {
                     Map<String, String> tempahan = new HashMap<>();
                     tempahan.put("id", String.valueOf(rs.getInt("id")));
+                    tempahan.put("pelanggan_id", String.valueOf(rs.getInt("pelanggan_id")));
                     tempahan.put("kod_tempahan", rs.getString("kod_tempahan")); 
                     tempahan.put("pelanggan", rs.getString("nama_pelanggan"));
                     tempahan.put("pakaian", rs.getString("kategori_pakaian")); 

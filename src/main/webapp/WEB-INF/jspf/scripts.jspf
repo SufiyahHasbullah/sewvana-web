@@ -11,6 +11,8 @@
 
 <%-- Sewvana Global JS (sidebar toggle + micro-interactions) --%>
 <script>
+/* ── App Context Path (injected from server) ── */
+var APP_CONTEXT = '${pageContext.request.contextPath}';
 (function() {
     'use strict';
 

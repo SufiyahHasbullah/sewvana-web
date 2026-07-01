@@ -71,6 +71,7 @@
     <%@ include file="/WEB-INF/jspf/sidebar-customer.jspf" %>
 
     <div class="sewvana-main-content">
+        <%@ include file="/WEB-INF/jspf/topbar.jspf" %>
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
                 <h1 class="fw-bold m-0 heading-warga-emas">Profil <span class="purple-text">Saya</span></h1>
@@ -149,7 +150,7 @@
                     </div>
                 </div>
 
-                <%-- Card Tukar Password Pelanggan --%>
+                <!-- Card Tukar Password Pelanggan -->
                 <div class="card profile-card mt-4">
                     <h3 class="fw-bold h4 mb-4 text-purple-dark"><i class="bi bi-shield-lock-fill me-2"></i>Tukar Kata Laluan</h3>
                     
@@ -178,13 +179,28 @@
                     </form>
                 </div>
 
+                <!-- Card Ukuran Badan -->
+                <div class="card profile-card mt-4 text-center text-md-start">
+                    <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-4">
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="profile-avatar-large" style="width:70px;height:70px;font-size:2rem;margin:0;"><i class="bi bi-rulers"></i></div>
+                            <div>
+                                <h3 class="fw-bold h5 mb-1 text-purple-dark">Ukuran Badan Saya</h3>
+                                <p class="text-muted small mb-0">Simpan ukuran profil anda untuk memudahkan penjahit.</p>
+                            </div>
+                        </div>
+                        <a href="<%= request.getContextPath() %>/pelanggan/ukuran" class="btn btn-sw-primary px-4 rounded-pill">
+                            Lihat & Edit Ukuran <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 
     <%@ include file="/WEB-INF/jspf/bottom-nav-customer.jspf" %>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <%@ include file="/WEB-INF/jspf/scripts.jspf" %>
     <script>
         function sahkanTukarPassword(form) {
             const baru = form.kataLaluanBaru.value;

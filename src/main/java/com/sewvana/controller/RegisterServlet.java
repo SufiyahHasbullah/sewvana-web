@@ -16,12 +16,25 @@ public class RegisterServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String aksi = request.getParameter("aksi");
+        String isGoogle = request.getParameter("isGoogle");
         String peranan = request.getParameter("role"); // Mengambil parameter 'role' dari borang atau JS
 
+        System.out.println(">>> DEBUG RegisterServlet - aksi: " + aksi);
+        System.out.println(">>> DEBUG RegisterServlet - isGoogle: " + isGoogle);
+        System.out.println(">>> DEBUG RegisterServlet - peranan: " + peranan);
+        System.out.println(">>> DEBUG RegisterServlet - googleToken: " + request.getParameter("googleToken"));
+        System.out.println(">>> DEBUG RegisterServlet - googleCredential: " + request.getParameter("googleCredential"));
+
         try {
-            if ("google".equals(aksi)) {
+            String tokenGoogle = request.getParameter("googleToken");
+            if (tokenGoogle == null || tokenGoogle.isEmpty()) {
+                tokenGoogle = request.getParameter("credential");
+            }
+            
+            boolean isGoogleSignUp = "google".equals(aksi) || "true".equals(isGoogle) || (tokenGoogle != null && !tokenGoogle.isEmpty());
+            
+            if (isGoogleSignUp) {
                 // ---------- PROSES PENDAFTARAN GOOGLE ----------
-                String tokenGoogle = request.getParameter("googleToken");
                 String[] bahagian = tokenGoogle.split("\\.");
                 String payloadJson = new String(Base64.getUrlDecoder().decode(bahagian[1]));
 
@@ -30,17 +43,35 @@ public class RegisterServlet extends HttpServlet {
                 String nama = ambilNilaiJson(payloadJson, "name");
 
                 if (penggunaDAO.semakEmelWujud(email)) {
-                    request.setAttribute("error", "E-mel akaun Google ini sudah berdaftar. Sila terus log masuk.");
-                    request.getRequestDispatcher("views/register.jsp").forward(request, response);
+                    // Pengguna sudah wujud, teruskan log masuk mereka!
+                    com.sewvana.model.Pengguna penggunaSediaAda = penggunaDAO.daftarAtauLogMasukGoogle(nama, email);
+                    HttpSession session = request.getSession();
+                    session.setAttribute("pengguna", penggunaSediaAda);
+                    
+                    // Halakan mengikut peranan
+                    if ("PENJAHIT".equalsIgnoreCase(penggunaSediaAda.getPeranan())) {
+                        response.sendRedirect(request.getContextPath() + "/dashboard-penjahit");
+                    } else if ("PENTADBIR".equalsIgnoreCase(penggunaSediaAda.getPeranan())) {
+                        response.sendRedirect(request.getContextPath() + "/admin/dashboard");
+                    } else {
+                        response.sendRedirect(request.getContextPath() + "/dashboard-pelanggan");
+                    }
                     return;
                 }
 
-                // Simpan maklumat pengguna Google ke dalam pangkalan data
-                boolean sukses = penggunaDAO.daftarPenggunaGoogle(nama, email, googleId, peranan.toUpperCase());
+                // Simpan maklumat pengguna Google ke dalam pangkalan data (Google registers always as PELANGGAN)
+                boolean sukses = penggunaDAO.daftarPenggunaGoogle(nama, email, googleId, "PELANGGAN");
                 if (sukses) {
+                    // Terus log masuk selepas pendaftaran berjaya
+                    com.sewvana.model.Pengguna penggunaBaru = penggunaDAO.daftarAtauLogMasukGoogle(nama, email);
                     HttpSession session = request.getSession();
-                    session.setAttribute("successMessage", "Akaun Google anda berjaya didaftarkan! Sila log masuk.");
-                    response.sendRedirect(request.getContextPath() + "/views/login.jsp");
+                    session.setAttribute("pengguna", penggunaBaru);
+                    
+                    // Halakan terus ke dashboard pelanggan
+                    response.sendRedirect(request.getContextPath() + "/dashboard-pelanggan");
+                } else {
+                    request.setAttribute("error", "Masalah dalaman sistem berlaku ketika mendaftar dengan Google. Sila cuba lagi.");
+                    request.getRequestDispatcher("views/register.jsp").forward(request, response);
                 }
 
             } else {

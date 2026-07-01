@@ -166,6 +166,7 @@
     <%@ include file="/WEB-INF/jspf/sidebar-tailor.jspf" %>
 
     <div class="sewvana-main-content">
+        <%@ include file="/WEB-INF/jspf/topbar.jspf" %>
 
         <%-- Flash messages --%>
         <% if (flashSuccess != null) { %>

@@ -75,7 +75,19 @@ public class PengurusanTempahanServlet extends HttpServlet {
                 // 5. Kemaskini pangkalan data jika status sah
                 if (statusBaru != null) {
                     boolean isSuccess = tempahanDAO.kemaskiniStatus(id, statusBaru);
-                    if (!isSuccess) {
+                    if (isSuccess) {
+                        // Tambah notifikasi untuk pelanggan
+                        int pelangganId = tempahanDAO.dapatkanPelangganId(id);
+                        if (pelangganId > 0) {
+                            String tajukNotis = "Status Tempahan Dikemaskini";
+                            String mesejNotis = "Tempahan anda (ID: #" + id + ") kini berstatus: " + statusBaru + ".";
+                            if (statusBaru.equals("DISAHKAN")) {
+                                tajukNotis = "Tempahan Disahkan!";
+                                mesejNotis = "Penjahit telah mengesahkan slot tempahan anda (ID: #" + id + "). Anda kini boleh melihat maklumat lanjut dan menunggu langkah seterusnya.";
+                            }
+                            tempahanDAO.tambahNotifikasi(pelangganId, tajukNotis, mesejNotis);
+                        }
+                    } else {
                         ralatMesej = "Gagal mengemas kini status ke pangkalan data. Sila cuba lagi.";
                         jayaMesej = null;
                     }
@@ -96,7 +108,12 @@ public class PengurusanTempahanServlet extends HttpServlet {
             session.setAttribute("flashError", ralatMesej);
         }
 
-        // 7. Alihkan semula pengguna kembali ke skrin utama Dashboard Penjahit
-        response.sendRedirect(request.getContextPath() + "/dashboard-penjahit");
+        // 7. Alihkan semula pengguna kembali ke halaman asalnya
+        String referer = request.getHeader("Referer");
+        if (referer != null && !referer.isEmpty()) {
+            response.sendRedirect(referer);
+        } else {
+            response.sendRedirect(request.getContextPath() + "/penjahit/pesanan-masuk");
+        }
     }
 }

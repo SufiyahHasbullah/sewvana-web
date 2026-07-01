@@ -17,6 +17,7 @@
     <%@ include file="/WEB-INF/jspf/sidebar-admin.jspf" %>
 
     <div class="sewvana-main-content">
+        <%@ include file="/WEB-INF/jspf/topbar.jspf" %>
         <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
             <div>
                 <h1 class="fw-bold m-0 text-warga-emas">Senarai <span class="purple-text">Penjahit</span></h1>
